@@ -33,7 +33,8 @@
   },
   "homepage": "https://github.com/1carimflex/melhor-envio-js#readme",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "universal-base64": "^2.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
