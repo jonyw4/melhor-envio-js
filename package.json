@@ -13,7 +13,7 @@
     "test": "npm run test:unit && codecov",
     "test:unit": "jest --collectCoverage ./src",
     "test:integration": "jest ./tests",
-    "docs": "jsdoc2md --plugin @godaddy/dmd --files src/**/*.js > API.md",
+    "docs": "jsdoc2md --plugin @godaddy/dmd --files src/**/*.js > DOCS.md",
     "semantic-release": "semantic-release"
   },
   "repository": {
