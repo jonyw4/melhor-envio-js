@@ -8,19 +8,11 @@ const defaultPlugins = [babel({ exclude: '/node_modules/' })];
 export default [
   {
     input,
-    external: [
-      'axios',
-      'qs',
-      'tls',
-      'regenerator-runtime/runtime',
-      'core-js/modules',
-    ],
+    external: ['axios'],
     plugins: [].concat(defaultPlugins, [commonjs()]),
     output: {
       globals: {
         axios: 'axios',
-        qs: 'Qs',
-        tls: 'tls',
       },
       file: 'dist/melhor-envio-js.js',
       format: 'umd',
@@ -29,7 +21,7 @@ export default [
   },
   {
     input,
-    external: ['axios', 'qs', 'tls'],
+    external: ['axios'],
     plugins: [].concat(defaultPlugins, [
       resolve({
         browser: true,
@@ -40,8 +32,6 @@ export default [
     output: {
       globals: {
         axios: 'axios',
-        qs: 'Qs',
-        tls: 'tls',
       },
       file: 'dist/melhor-envio-js-browser.js',
       format: 'umd',
