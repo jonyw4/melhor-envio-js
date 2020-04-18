@@ -3,13 +3,23 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 
 const input = 'src/index.js';
-const defaultPlugins = [babel({ exclude: '/node_modules/' })];
+const defaultPlugins = [
+  babel({
+    exclude: '/node_modules/',
+    include: [/node_modules\/universal-base64/],
+  }),
+];
 
 export default [
   {
     input,
     external: ['axios'],
-    plugins: [].concat(defaultPlugins, [commonjs()]),
+    plugins: [].concat(defaultPlugins, [
+      resolve({
+        skip: ['universal-base64'],
+      }),
+      commonjs(),
+    ]),
     output: {
       globals: {
         axios: 'axios',
@@ -25,6 +35,7 @@ export default [
     plugins: [].concat(defaultPlugins, [
       resolve({
         browser: true,
+        skip: ['universal-base64'],
       }),
       commonjs(),
     ]),

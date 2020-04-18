@@ -1,4 +1,6 @@
 import fetch from './fetch';
+import checkTokenValid from '../utils/checkTokenValid';
+
 /**
  * @class
  * @alias module:melhor-envio-js#MelhorEnvio
@@ -7,6 +9,9 @@ import fetch from './fetch';
  * @param {number} timeout Timeout of the request
  */
 function MelhorEnvio(token, isSandbox = false, timeout = 5000) {
+  if (!checkTokenValid(token)) {
+    throw new Error('Expired token');
+  }
   this.token = token;
   this.isSandbox = isSandbox;
   this.timeout = timeout;
