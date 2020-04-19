@@ -10,9 +10,9 @@ import {
  *
  * @alias module:melhor-envio-js#MelhorEnvio~fetch
  * @param {string} url URL. Route to the fetch. can be `/test`
- * @param {string} method Method. Can be *GET*. *POST*...
- * @param {object} params Querystring params. Its most used in *GET* requests
- * @param {object} data Data. Use for *POST* requests
+ * @param {string} [method=GET] Method. Can be *GET*. *POST*.
+ * @param {object} [params={}] Querystring params. Its most used in *GET* requests. (Optional)
+ * @param {object} [data={}] Data. Use for *POST* requests. (Optional)
  * @returns {Promise.<any, (Error)>} Data response of the fetch, or an error if rejected.
  */
 export default async function (
