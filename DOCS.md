@@ -49,7 +49,7 @@ Name | Description
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | token | `string` |  | Token for API Requests. Can be generated direct in Melhor Envio Dashboard. |
-| \[isSandbox\] | `boolean` | `false` | Use or not a sandbox enviroment for testing. (Optional) |
+| \[isSandbox\] | `boolean` | `false` | Use or not a sandbox environment for testing. (Optional) |
 | \[timeout\] | `number` | `5000` | Timeout of the request. (Optional) |
 
 
@@ -135,7 +135,7 @@ Name | Description
 
 | Name | Type | Description |
 | --- | --- | --- |
-| company | [`MelhorEnvioCompany`] | Company information |
+| company | `getShipmentServices.MelhorEnvioCompany` | Company information |
 | \[error\] | `string` | A message of error. (Only if don't return information) |
 
 
@@ -188,8 +188,8 @@ Name | Description
 [`melhor-envio-js`]:#melhor-envio-js
 [`MelhorEnvio`]:#new-melhorenviotoken-issandbox-timeout
 [`MelhorEnvioPackage`]:#melhorenviopackage
-[`MelhorEnvioCompany`]:#melhorenviocompany
 [`MelhorEnvioBoxRange`]:#melhorenvioboxrange
+[`MelhorEnvioCompany`]:#melhorenviocompany
 [new MelhorEnvio(token, \[isSandbox\], \[timeout\])]:#new-melhorenviotoken-issandbox-timeout
 [~calculateShipment(fromPostalCode, toPostalCode, \[packageData\], \[productsData\], \[services\], \[receipt\], \[ownHand\], \[insuranceValue\])]:#melhorenviocalculateshipmentfrompostalcode-topostalcode-packagedata-productsdata-services-receipt-ownhand-insurancevalue
 [~fetch(url, \[method\], \[params\], \[data\])]:#melhorenviofetchurl-method-params-data
