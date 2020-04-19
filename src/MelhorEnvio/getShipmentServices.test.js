@@ -14,7 +14,7 @@ describe('MelhorEnvio.getShipmentServices()', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-  it('should call getShipmentServices without token API with success', async () => {
+  it('should call getShipmentServices API with success', async () => {
     axios
       .mockImplementationOnce(() => Promise.resolve({
         data: [{ id: 1, name: 'Correios' }],

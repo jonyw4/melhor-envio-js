@@ -20,7 +20,7 @@ rules:
       ignoreComments: true
       ignoreTrailingComments: true
       ignoreUrls: true
-    
+  jsdoc/no-undefined-types: 0
 plugins:
   - "jest"
   - "jsdoc"
