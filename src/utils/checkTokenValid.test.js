@@ -8,9 +8,11 @@ describe('checkTokenValid()', () => {
     const isTokenValid = checkTokenValid(token);
     expect(isTokenValid).toBe(false);
   });
-  test('should return false for new token', async () => {
-    const token = generateTestToken(new Date().toString());
+  test('should return true for new token', async () => {
+    const myDate = new Date();
+    myDate.setDate(myDate.getDate() + 1);
+    const token = generateTestToken(myDate.toString());
     const isTokenValid = checkTokenValid(token);
-    expect(isTokenValid).toBe(false);
+    expect(isTokenValid).toBe(true);
   });
 });
