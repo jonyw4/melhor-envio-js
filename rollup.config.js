@@ -49,4 +49,14 @@ export default [
       name: 'MelhorEnvio',
     },
   },
+  {
+    input,
+    external: ['axios', 'universal-base64'],
+    plugins: resolve(),
+    output: {
+      file: 'dist/melhor-envio-js-esm.js',
+      format: 'es',
+      name: 'MelhorEnvio',
+    },
+  },
 ];
