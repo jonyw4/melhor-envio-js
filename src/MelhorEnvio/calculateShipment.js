@@ -18,9 +18,27 @@
  */
 
 /**
- * @typedef {object} MelhorEnvioGetShipmentCalculateShipmentItem
+ * @typedef {object} MelhorEnvioGetShipmentCalculateShipmentResponseItem
+ * @property {number} Id Id
+ * @property {string} name Name
+ * @property {number} price Shipment Price
+ * @property {number} custom_price Custom price
+ * @property {number} discount Discount
+ * @property {string} currency Currency
+ * @property {number} delivery_time Delivery time in days
+ * @property {object} delivery_range Range of delivery in days
+ * @property {number} delivery_range.min Minimum value for delivery in days
+ * @property {number} delivery_range.max Maximum value for delivery in days
+ * @property {number} custom_delivery_time Custom delivery time
+ * @property {object} custom_delivery_range Range of custom delivery
+ * @property {number} custom_delivery_range.min Minimum value for custom delivery
+ * @property {number} custom_delivery_range.max Maximum value for custom delivery
+ * @property {Array} packages Packages
+ * @property {object} additional_services Additional Services
+ * @property {boolean} additional_services.receipt If the additional service receipt is active
+ * @property {boolean} additional_services.own_hand If the additional service own hand is active
+ * @property {boolean} additional_services.collect If the shipment will be collected
  * @property {MelhorEnvioCompany} company Company information
- * @property {string} [error] A message of error. (Only if don't return information)
  */
 
 /**
@@ -35,7 +53,7 @@
  * @param {boolean} [receipt=false] If you want a receipt service (Optional)
  * @param {boolean} [ownHand=false] If you want a own hand service (Optional)
  * @param {number} [insuranceValue=0] **Used only if you use packageData**. Value for the insurance (Optional)
- * @returns {Promise.<Array.<MelhorEnvioGetShipmentCalculateShipmentItem>, (Error)>} Return all shipment quote, or an error if rejected. (Optional)
+ * @returns {Promise.<Array.<MelhorEnvioGetShipmentCalculateShipmentResponseItem>, (Error)>} Return all shipment quote, or an error if rejected. (Optional)
  */
 export default async function (
   fromPostalCode,

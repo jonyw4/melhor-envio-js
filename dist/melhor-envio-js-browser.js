@@ -104,22 +104,44 @@
 
   /**
    * @typedef {object} MelhorEnvioCompany
-   * @property {string} id ID
+   * @property {number} id Id
+   * @property {string} name Name
+   * @property {string} picture Picture
    */
 
   /**
    * @typedef {object} MelhorEnvioBoxRange
-   * @property {string} id ID
+   * @property {object} weight Range of weight
+   * @property {number} weight.min Minimum value for weight
+   * @property {number} weight.max Maximum value for weight
+   * @property {object} width Range of width
+   * @property {number} width.min Minimum value for width
+   * @property {number} width.max Maximum value for width
+   * @property {object} height Range of height
+   * @property {number} height.min Minimum value for height
+   * @property {number} height.max Maximum value for height
+   * @property {object} length Range of length
+   * @property {number} length.min Minimum value for length
+   * @property {number} length.max Maximum value for length
+   * @property {number} sum sum
    */
 
   /**
    * @typedef {object} MelhorEnvioGetShipmentServicesResponseItem
+   * @property {number} id Id
+   * @property {string} name Name
+   * @property {string} type Type
+   * @property {string} range range
    * @property {object} restrictions Restriction information
    * @property {object} restrictions.insurance_value Range of insurance allowed
+   * @property {number} restrictions.insurance_value.min Minimum value for insurance
+   * @property {number} restrictions.insurance_value.max Maximum value for insurance
    * @property {object} restrictions.formats A list of allowed formats
    * @property {MelhorEnvioBoxRange} restrictions.formats.box Box format limits
-   * @property {MelhorEnvioBoxRange} [restrictions.formats.roll] Roll format limits. (Optional)
-   * @property {MelhorEnvioBoxRange} [restrictions.formats.letter] Letter format limits. (Optional)
+   * @property {MelhorEnvioBoxRange} [restrictions.formats.roll] Roll format limits
+   * @property {MelhorEnvioBoxRange} [restrictions.formats.letter] Letter format limits
+   * @property {Array} requirements Requirements
+   * @property {Array} optionals optionals services
    * @property {MelhorEnvioCompany} company Company information
    */
 
@@ -153,9 +175,27 @@
    */
 
   /**
-   * @typedef {object} MelhorEnvioGetShipmentCalculateShipmentItem
+   * @typedef {object} MelhorEnvioGetShipmentCalculateShipmentResponseItem
+   * @property {number} Id Id
+   * @property {string} name Name
+   * @property {number} price Shipment Price
+   * @property {number} custom_price Custom price
+   * @property {number} discount Discount
+   * @property {string} currency Currency
+   * @property {number} delivery_time Delivery time in days
+   * @property {object} delivery_range Range of delivery in days
+   * @property {number} delivery_range.min Minimum value for delivery in days
+   * @property {number} delivery_range.max Maximum value for delivery in days
+   * @property {number} custom_delivery_time Custom delivery time
+   * @property {object} custom_delivery_range Range of custom delivery
+   * @property {number} custom_delivery_range.min Minimum value for custom delivery
+   * @property {number} custom_delivery_range.max Maximum value for custom delivery
+   * @property {Array} packages Packages
+   * @property {object} additional_services Additional Services
+   * @property {boolean} additional_services.receipt If the additional service receipt is active
+   * @property {boolean} additional_services.own_hand If the additional service own hand is active
+   * @property {boolean} additional_services.collect If the shipment will be collected
    * @property {MelhorEnvioCompany} company Company information
-   * @property {string} [error] A message of error. (Only if don't return information)
    */
 
   /**
@@ -170,7 +210,7 @@
    * @param {boolean} [receipt=false] If you want a receipt service (Optional)
    * @param {boolean} [ownHand=false] If you want a own hand service (Optional)
    * @param {number} [insuranceValue=0] **Used only if you use packageData**. Value for the insurance (Optional)
-   * @returns {Promise.<Array.<MelhorEnvioGetShipmentCalculateShipmentItem>, (Error)>} Return all shipment quote, or an error if rejected. (Optional)
+   * @returns {Promise.<Array.<MelhorEnvioGetShipmentCalculateShipmentResponseItem>, (Error)>} Return all shipment quote, or an error if rejected. (Optional)
    */
   async function calculateShipment (
     fromPostalCode,

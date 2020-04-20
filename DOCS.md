@@ -15,7 +15,7 @@ Name | Description
 ------ | -----------
 [MelhorEnvioPackage] | 
 [MelhorEnvioCalculateShipmentProduct] | 
-[MelhorEnvioGetShipmentCalculateShipmentItem] | 
+[MelhorEnvioGetShipmentCalculateShipmentResponseItem] | 
 [MelhorEnvioCompany] | 
 [MelhorEnvioBoxRange] | 
 [MelhorEnvioGetShipmentServicesResponseItem] | 
@@ -58,7 +58,7 @@ Name | Description
 💵 Calculate quote for shipment
 
 **Kind**: inner method of [`MelhorEnvio`]  
-**Returns**: `Promise.<Array.<MelhorEnvioGetShipmentCalculateShipmentItem>, (Error)>` - Return all shipment quote, or an error if rejected. (Optional)  
+**Returns**: `Promise.<Array.<MelhorEnvioGetShipmentCalculateShipmentResponseItem>, (Error)>` - Return all shipment quote, or an error if rejected. (Optional)  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -128,15 +128,33 @@ Name | Description
 | quantity | `number` | Qty of items |
 
 
-## MelhorEnvioGetShipmentCalculateShipmentItem
+## MelhorEnvioGetShipmentCalculateShipmentResponseItem
 
 **Kind**: global typedef  
 **Properties**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| company | `getShipmentServices.MelhorEnvioCompany` | Company information |
-| \[error\] | `string` | A message of error. (Only if don't return information) |
+| Id | `number` | Id |
+| name | `string` | Name |
+| price | `number` | Shipment Price |
+| custom_price | `number` | Custom price |
+| discount | `number` | Discount |
+| currency | `string` | Currency |
+| delivery_time | `number` | Delivery time in days |
+| delivery_range | `object` | Range of delivery in days |
+| delivery_range.min | `number` | Minimum value for delivery in days |
+| delivery_range.max | `number` | Maximum value for delivery in days |
+| custom_delivery_time | `number` | Custom delivery time |
+| custom_delivery_range | `object` | Range of custom delivery |
+| custom_delivery_range.min | `number` | Minimum value for custom delivery |
+| custom_delivery_range.max | `number` | Maximum value for custom delivery |
+| packages | `Array` | Packages |
+| additional_services | `object` | Additional Services |
+| additional_services.receipt | `boolean` | If the additional service receipt is active |
+| additional_services.own_hand | `boolean` | If the additional service own hand is active |
+| additional_services.collect | `boolean` | If the shipment will be collected |
+| company | [`MelhorEnvioCompany`] | Company information |
 
 
 ## MelhorEnvioCompany
@@ -146,7 +164,9 @@ Name | Description
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | `string` | ID |
+| id | `number` | Id |
+| name | `string` | Name |
+| picture | `string` | Picture |
 
 
 ## MelhorEnvioBoxRange
@@ -156,7 +176,19 @@ Name | Description
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | `string` | ID |
+| weight | `object` | Range of weight |
+| weight.min | `number` | Minimum value for weight |
+| weight.max | `number` | Maximum value for weight |
+| width | `object` | Range of width |
+| width.min | `number` | Minimum value for width |
+| width.max | `number` | Maximum value for width |
+| height | `object` | Range of height |
+| height.min | `number` | Minimum value for height |
+| height.max | `number` | Maximum value for height |
+| length | `object` | Range of length |
+| length.min | `number` | Minimum value for length |
+| length.max | `number` | Maximum value for length |
+| sum | `number` | sum |
 
 
 ## MelhorEnvioGetShipmentServicesResponseItem
@@ -166,12 +198,20 @@ Name | Description
 
 | Name | Type | Description |
 | --- | --- | --- |
+| id | `number` | Id |
+| name | `string` | Name |
+| type | `string` | Type |
+| range | `string` | range |
 | restrictions | `object` | Restriction information |
 | restrictions.insurance_value | `object` | Range of insurance allowed |
+| restrictions.insurance_value.min | `number` | Minimum value for insurance |
+| restrictions.insurance_value.max | `number` | Maximum value for insurance |
 | restrictions.formats | `object` | A list of allowed formats |
 | restrictions.formats.box | [`MelhorEnvioBoxRange`] | Box format limits |
-| \[restrictions.formats.roll\] | [`MelhorEnvioBoxRange`] | Roll format limits. (Optional) |
-| \[restrictions.formats.letter\] | [`MelhorEnvioBoxRange`] | Letter format limits. (Optional) |
+| \[restrictions.formats.roll\] | [`MelhorEnvioBoxRange`] | Roll format limits |
+| \[restrictions.formats.letter\] | [`MelhorEnvioBoxRange`] | Letter format limits |
+| requirements | `Array` | Requirements |
+| optionals | `Array` | optionals services |
 | company | [`MelhorEnvioCompany`] | Company information |
 
 <!-- LINKS -->
@@ -180,7 +220,7 @@ Name | Description
 [AxiosTestError]:#axiostesterror
 [MelhorEnvioPackage]:#melhorenviopackage
 [MelhorEnvioCalculateShipmentProduct]:#melhorenviocalculateshipmentproduct
-[MelhorEnvioGetShipmentCalculateShipmentItem]:#melhorenviogetshipmentcalculateshipmentitem
+[MelhorEnvioGetShipmentCalculateShipmentResponseItem]:#melhorenviogetshipmentcalculateshipmentresponseitem
 [MelhorEnvioCompany]:#melhorenviocompany
 [MelhorEnvioBoxRange]:#melhorenvioboxrange
 [MelhorEnvioGetShipmentServicesResponseItem]:#melhorenviogetshipmentservicesresponseitem
@@ -188,8 +228,8 @@ Name | Description
 [`melhor-envio-js`]:#melhor-envio-js
 [`MelhorEnvio`]:#new-melhorenviotoken-issandbox-timeout
 [`MelhorEnvioPackage`]:#melhorenviopackage
-[`MelhorEnvioBoxRange`]:#melhorenvioboxrange
 [`MelhorEnvioCompany`]:#melhorenviocompany
+[`MelhorEnvioBoxRange`]:#melhorenvioboxrange
 [new MelhorEnvio(token, \[isSandbox\], \[timeout\])]:#new-melhorenviotoken-issandbox-timeout
 [~calculateShipment(fromPostalCode, toPostalCode, \[packageData\], \[productsData\], \[services\], \[receipt\], \[ownHand\], \[insuranceValue\])]:#melhorenviocalculateshipmentfrompostalcode-topostalcode-packagedata-productsdata-services-receipt-ownhand-insurancevalue
 [~fetch(url, \[method\], \[params\], \[data\])]:#melhorenviofetchurl-method-params-data
