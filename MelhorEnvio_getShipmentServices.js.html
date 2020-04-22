@@ -1,0 +1,148 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>JSDoc: MelhorEnvio/getShipmentServices.js</title>
+
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="./build/entry.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Muli:100,400,700|Oswald:300|Inconsolata,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+</head>
+
+<body>
+    <div id="stickyNavbarOverlay"></div>
+    <div class="top-navbar">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    
+                     
+                        <h1 class="navbar-item">UPS Brazil JS - By CarimFlex</h1>
+                    
+                    <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                 
+                <div class="navbar-menu">
+                    <div class="navbar-end">
+                    
+                        <div class="navbar-item">
+                            <a href="https://github.com/1carimflex/ups-brazil-js" target="_blank">
+                                Github
+                            </a>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-3" id="sidebarNav">
+                <div class="sidebar">
+                    <nav>
+                        <h2><a href="index.html">Home</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-melhor-envio-js.html">melhor-envio-js</a></li></ul><h3>Classes</h3><ul><li><a href="AxiosTestError.html">AxiosTestError</a></li><li><a href="MelhorEnvioFetchClientError.html">MelhorEnvioFetchClientError</a></li><li><a href="MelhorEnvioFetchOtherError.html">MelhorEnvioFetchOtherError</a></li><li><a href="MelhorEnvioFetchServerError.html">MelhorEnvioFetchServerError</a></li><li><a href="module-melhor-envio-js_MelhorEnvio.html">MelhorEnvio</a></li></ul><h3><a href="global.html">Global</a></h3></div>
+                    </nav>
+                </div>
+            </div>
+            <div class="column is-9-desktop">
+                <div class="content" id="main-content-wrapper">
+                    <header class="page-title">
+                        <p>Source</p>
+                        <h1>MelhorEnvio/getShipmentServices.js</h1>
+                    </header>
+                    
+                    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @typedef {object} MelhorEnvioCompany
+ * @property {number} id Id
+ * @property {string} name Name
+ * @property {string} picture Picture
+ */
+
+/**
+ * @typedef {object} MelhorEnvioBoxRange
+ * @property {object} weight Range of weight
+ * @property {number} weight.min Minimum value for weight
+ * @property {number} weight.max Maximum value for weight
+ * @property {object} width Range of width
+ * @property {number} width.min Minimum value for width
+ * @property {number} width.max Maximum value for width
+ * @property {object} height Range of height
+ * @property {number} height.min Minimum value for height
+ * @property {number} height.max Maximum value for height
+ * @property {object} length Range of length
+ * @property {number} length.min Minimum value for length
+ * @property {number} length.max Maximum value for length
+ * @property {number} sum sum
+ */
+
+/**
+ * @typedef {object} MelhorEnvioGetShipmentServicesResponseItem
+ * @property {number} id Id
+ * @property {string} name Name
+ * @property {string} type Type
+ * @property {string} range range
+ * @property {object} restrictions Restriction information
+ * @property {object} restrictions.insurance_value Range of insurance allowed
+ * @property {number} restrictions.insurance_value.min Minimum value for insurance
+ * @property {number} restrictions.insurance_value.max Maximum value for insurance
+ * @property {object} restrictions.formats A list of allowed formats
+ * @property {MelhorEnvioBoxRange} restrictions.formats.box Box format limits
+ * @property {MelhorEnvioBoxRange} [restrictions.formats.roll] Roll format limits
+ * @property {MelhorEnvioBoxRange} [restrictions.formats.letter] Letter format limits
+ * @property {Array} requirements Requirements
+ * @property {Array} optionals optionals services
+ * @property {MelhorEnvioCompany} company Company information
+ */
+
+/**
+ * 📖 Get all services of shipments
+ *
+ * @alias module:melhor-envio-js#MelhorEnvio~getShipmentServices
+ * @returns {Promise.&lt;Array.&lt;MelhorEnvioGetShipmentServicesResponseItem>, (Error)>} Return all services information, or an error if rejected.
+ */
+export default async function () {
+  return this.fetch('/api/v2/me/shipment/services', 'GET');
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<script src="scripts/app.min.js"></script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
