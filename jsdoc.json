@@ -19,12 +19,12 @@
     "cleverLinks": false,
     "monospaceLinks": false,
     "better-docs": {
-      "name": "UPS Brazil JS - By CarimFlex",
+      "name": "Melhor Envio JS - By CarimFlex",
       "hideGenerator": false,
       "navigation": [
         {
           "label": "Github",
-          "href": "https://github.com/1carimflex/ups-brazil-js"
+          "href": "https://github.com/1carimflex/melhor-envio-js"
         }
       ]
     }
