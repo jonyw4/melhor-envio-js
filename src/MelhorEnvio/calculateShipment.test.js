@@ -3,6 +3,7 @@ import generateTestToken from '../utils/generateTestToken';
 import MelhorEnvio from './index';
 
 jest.mock('axios');
+// @ts-ignore
 axios.mockResolvedValue();
 
 const myDate = new Date();
@@ -15,6 +16,7 @@ describe('MelhorEnvio.calculateShipment()', () => {
     jest.clearAllMocks();
   });
   it('should call calculateShipment with package with success', async () => {
+    // @ts-ignore
     axios.mockImplementationOnce(() => Promise.resolve({
       data: [{ id: 1, name: 'Correios' }],
     }));
@@ -70,6 +72,7 @@ describe('MelhorEnvio.calculateShipment()', () => {
     });
   });
   it('should call calculateShipment with products and services with success', async () => {
+    // @ts-ignore
     axios.mockImplementationOnce(() => Promise.resolve({
       data: [{ id: 1, name: 'Correios' }],
     }));
@@ -78,15 +81,15 @@ describe('MelhorEnvio.calculateShipment()', () => {
     const response = await me.calculateShipment(
       '12608220',
       '68637000',
-      {},
+      null,
       [
         {
+          id: '1',
           height: 11,
           length: 20,
           width: 30,
           weight: 0.14,
           insurance_value: 100,
-          id: 1,
           quantity: 1,
         },
       ],
@@ -116,7 +119,7 @@ describe('MelhorEnvio.calculateShipment()', () => {
           width: 30,
           weight: 0.14,
           insurance_value: 100,
-          id: 1,
+          id: '1',
           quantity: 1,
         }],
         services: '1,3',
@@ -147,12 +150,12 @@ describe('MelhorEnvio.calculateShipment()', () => {
       },
       [
         {
+          id: '1',
           height: 11,
           length: 20,
           width: 30,
           weight: 0.14,
           insurance_value: 100,
-          id: 1,
           quantity: 1,
         },
       ],

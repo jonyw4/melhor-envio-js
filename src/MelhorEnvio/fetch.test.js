@@ -9,6 +9,7 @@ import {
 } from '../errors';
 
 jest.mock('axios');
+// @ts-ignore
 axios.mockResolvedValue();
 
 const myDate = new Date();
@@ -21,6 +22,7 @@ describe('MelhorEnvio.fetch()', () => {
     jest.clearAllMocks();
   });
   it('should fetch a GET request successfully from ME API', async () => {
+    // @ts-ignore
     axios.mockImplementationOnce(() => Promise.resolve({
       data: { access_token: 'token123' },
     }));
@@ -51,6 +53,7 @@ describe('MelhorEnvio.fetch()', () => {
   });
 
   it('should fetch an MelhorEnvioOtherError from ME API', async () => {
+    // @ts-ignore
     axios.mockRejectedValue(new AxiosTestError({}));
     const me = new MelhorEnvio(token);
     const fetch = me.fetch('/test', 'GET');
@@ -58,6 +61,7 @@ describe('MelhorEnvio.fetch()', () => {
   });
 
   it('should fetch an MelhorEnvioFetchClientError from ME API', async () => {
+    // @ts-ignore
     axios.mockRejectedValue(new AxiosTestError({ request: {} }));
     const me = new MelhorEnvio(token);
     const fetch = me.fetch('/test', 'GET');
@@ -65,6 +69,7 @@ describe('MelhorEnvio.fetch()', () => {
   });
 
   it('should fetch an MelhorEnvioFetchServerError from ME API', async () => {
+    // @ts-ignore
     axios.mockRejectedValue(new AxiosTestError({ response: { status: 404 } }));
     const me = new MelhorEnvio(token);
     const fetch = me.fetch('/test', 'GET');

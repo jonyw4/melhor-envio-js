@@ -30,7 +30,7 @@ class MelhorEnvioFetchServerError extends Error {
   /**
    * Creates an instance of MelhorEnvioFetchServerError.
    *
-   * @param {string} status Status Code passed from the server
+   * @param {number} status Status Code passed from the server
    * @memberof MelhorEnvioFetchServerError
    */
   constructor(status) {

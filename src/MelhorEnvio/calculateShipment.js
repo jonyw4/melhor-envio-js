@@ -47,7 +47,7 @@
  * @alias module:melhor-envio-js#MelhorEnvio~calculateShipment
  * @param {string} fromPostalCode Origin Postal Code
  * @param {string} toPostalCode Destination Postal Code
- * @param {MelhorEnvioPackage} [packageData={}] All data of package. **If you chose these option you cant choose `productsData`**
+ * @param {MelhorEnvioPackage} [packageData=null] All data of package. **If you chose these option you cant choose `productsData`**
  * @param {Array.<MelhorEnvioCalculateShipmentProduct>} [productsData=[]] A list of product required for calculate quote. **If you chose these option you cant choose `packageData`**
  * @param {Array} [services=[]] A list of services ID that you want to get in response (Optional)
  * @param {boolean} [receipt=false] If you want a receipt service (Optional)
@@ -58,7 +58,7 @@
 export default async function (
   fromPostalCode,
   toPostalCode,
-  packageData = {},
+  packageData = null,
   productsData = [],
   services = [],
   receipt = false,
@@ -82,9 +82,9 @@ export default async function (
   if (services.length > 0) {
     data.services = services.join(',');
   }
-  if (Object.keys(packageData).length > 0 && productsData.length > 0) {
+  if ((packageData && Object.keys(packageData).length > 0) && productsData.length > 0) {
     throw new Error('You need to choose between package or product to calculate shipment');
-  } else if (Object.keys(packageData).length > 0) {
+  } else if (packageData && Object.keys(packageData).length > 0) {
     data.package = packageData;
   } else if (productsData.length > 0) {
     data.products = productsData;

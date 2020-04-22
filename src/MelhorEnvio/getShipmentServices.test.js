@@ -1,3 +1,4 @@
+// @ts-nocheck
 import axios from 'axios';
 import generateTestToken from '../utils/generateTestToken';
 import MelhorEnvio from './index';
