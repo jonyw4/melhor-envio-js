@@ -54,7 +54,7 @@
     "babel-jest": "25.3.0",
     "better-docs": "1.4.7",
     "codecov": "3.6.5",
-    "eslint": "6.8.0",
+    "eslint": "7.3.1",
     "eslint-config-airbnb-base": "14.1.0",
     "eslint-plugin-import": "2.20.2",
     "eslint-plugin-jest": "23.8.2",
