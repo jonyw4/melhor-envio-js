@@ -106,6 +106,9 @@
     "^.+\\.[t|j]sx?$": "babel-jest"
   },
   "jest": {
-    "collectCoverageFrom": ["**/src/**", "!**/node_modules/**"]
+    "collectCoverageFrom": [
+      "**/src/**",
+      "!**/node_modules/**"
+    ]
   }
 }
