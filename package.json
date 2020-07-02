@@ -1,18 +1,18 @@
 {
-  "name": "@carimflex/melhor-envio-js",
+  "name": "menv-js",
   "version": "0.0.0",
   "description": "🚚 Melhor Envio Javascript API",
-  "main": "dist/melhor-envio-js.min.js",
-  "module": "dist/melhor-envio-js-browser-esm.js",
-  "browser": "dist/melhor-envio-js-browser.min.js",
+  "main": "dist/menv-js.min.js",
+  "module": "dist/menv-js-browser-esm.js",
+  "browser": "dist/menv-js-browser.min.js",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "rollup -c && npm run build:minify && npm run docs",
     "build:minify": "npm run build:minify-browser && npm run build:minify-node",
-    "build:minify-browser": "terser dist/melhor-envio-js-browser.js -c -o dist/melhor-envio-js-browser.min.js",
-    "build:minify-node": "terser dist/melhor-envio-js.js -c -o dist/melhor-envio-js.min.js",
+    "build:minify-browser": "terser dist/menv-js-browser.js -c -o dist/menv-js-browser.min.js",
+    "build:minify-node": "terser dist/menv-js.js -c -o dist/menv-js.min.js",
     "lint": "eslint 'src/**/*.js'",
     "test": "npm run test:unit && codecov",
     "test:unit": "jest --collectCoverage ./src",
@@ -22,20 +22,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/1carimflex/melhor-envio-js.git"
+    "url": "https://github.com/jonyw4/melhor-envio-js.git"
   },
   "keywords": [
-    "carimflex",
+    "melhorEnvio",
     "melhor envio",
+    "menv",
     "me",
     "api"
   ],
   "author": "Jonathan Célio",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/1carimflex/melhor-envio-js/issues"
+    "url": "https://github.com/jonyw4/melhor-envio-js/issues"
   },
-  "homepage": "https://github.com/1carimflex/melhor-envio-js#readme",
+  "homepage": "https://github.com/jonyw4/melhor-envio-js#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "universal-base64": "^2.1.0"
