@@ -16,6 +16,7 @@ export default [
     external: ['axios'],
     plugins: [].concat(defaultPlugins, [
       resolve({
+        // @ts-ignore
         skip: ['universal-base64'],
       }),
       commonjs(),
@@ -24,7 +25,7 @@ export default [
       globals: {
         axios: 'axios',
       },
-      file: 'dist/melhor-envio-js.js',
+      file: 'dist/menv-js.js',
       format: 'umd',
       name: 'MelhorEnvio',
     },
@@ -35,6 +36,7 @@ export default [
     plugins: [].concat(defaultPlugins, [
       resolve({
         browser: true,
+        // @ts-ignore
         skip: ['universal-base64'],
       }),
       commonjs(),
@@ -44,7 +46,7 @@ export default [
       globals: {
         axios: 'axios',
       },
-      file: 'dist/melhor-envio-js-browser.js',
+      file: 'dist/menv-js-browser.js',
       format: 'umd',
       name: 'MelhorEnvio',
     },
@@ -54,7 +56,7 @@ export default [
     external: ['axios', 'universal-base64'],
     plugins: resolve(),
     output: {
-      file: 'dist/melhor-envio-js-esm.js',
+      file: 'dist/menv-js-esm.js',
       format: 'es',
       name: 'MelhorEnvio',
     },
