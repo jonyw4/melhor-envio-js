@@ -19,8 +19,8 @@ class MelhorEnvio {
 
   /**
    * @param token Token for API Requests. Can be generated direct in Melhor Envio Dashboard.
-   * @param isSandbox Use or not a sandbox environment for testing. (Optional)
-   * @param timeout Timeout of the request. (Optional)
+   * @param isSandbox Use or not a sandbox environment for testing.
+   * @param timeout Timeout of the request.
    */
   constructor(
     token: string,
@@ -28,7 +28,7 @@ class MelhorEnvio {
     timeout: number = 5000
   ) {
     if (!checkTokenValid(token)) {
-      throw new Error("Expired token");
+      throw new Error("Your token has expired");
     }
     this.token = token;
     this.isSandbox = isSandbox;
@@ -39,8 +39,8 @@ class MelhorEnvio {
    * 📨 Fetch in the RTE API
    * @param url URL. Route to the fetch. can be `/test`
    * @param method Method. Can be *GET*. *POST*.
-   * @param params Querystring params. Its most used in *GET* requests. (Optional)
-   * @param data Data. Use for *POST* requests. (Optional)
+   * @param params Querystring params. Its most used in *GET* requests.
+   * @param data Data. Use for *POST* requests.
    */
   private async fetch<T = any>(
     url: string,
@@ -83,10 +83,10 @@ class MelhorEnvio {
    * @param toPostalCode Destination Postal Code
    * @param packageData All data of package. **If you chose these option you cant choose `productsData`**
    * @param productsData A list of product required for calculate quote. **If you chose these option you cant choose `packageData`**
-   * @param services A list of services ID that you want to get in response (Optional)
-   * @param receipt If you want a receipt service (Optional)
-   * @param ownHand If you want a own hand service (Optional)
-   * @param insuranceValue **Used only if you use packageData**. Value for the insurance (Optional)
+   * @param services A list of services ID that you want to get in response
+   * @param receipt If you want a receipt service
+   * @param ownHand If you want a own hand service
+   * @param insuranceValue **Used only if you use packageData**. Value for the insurance
    */
   public async calculateShipment(
     fromPostalCode: string,
