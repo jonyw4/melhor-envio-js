@@ -1,10 +1,9 @@
-/* eslint-disable max-classes-per-file */
-
-/**
- * @class
- * @augments {Error}
- */
 class AxiosTestError extends Error {
+  config: string;
+  code: string;
+  request: string;
+  response: string;
+  isAxiosError: boolean;
   constructor({
     message = 'Axios Test Error',
     config = '',
@@ -22,32 +21,21 @@ class AxiosTestError extends Error {
   }
 }
 
-/**
- * @class
- * @augments Error
- */
 class MelhorEnvioFetchServerError extends Error {
   /**
    * Creates an instance of MelhorEnvioFetchServerError.
    *
-   * @param {number} status Status Code passed from the server
-   * @memberof MelhorEnvioFetchServerError
+   * @param status Status Code passed from the server
    */
-  constructor(status) {
+  constructor(status:number) {
     super(`Server error status ${status} `);
     this.name = 'MelhorEnvioFetchServerError';
   }
 }
 
-/**
- * @class
- * @augments Error
- */
 class MelhorEnvioFetchClientError extends Error {
   /**
    * Creates an instance of MelhorEnvioFetchClientError.
-   *
-   * @memberof MelhorEnvioFetchClientError
    */
   constructor() {
     super('Client error');
@@ -55,15 +43,9 @@ class MelhorEnvioFetchClientError extends Error {
   }
 }
 
-/**
- * @class
- * @augments Error
- */
 class MelhorEnvioFetchOtherError extends Error {
   /**
    * Creates an instance of MelhorEnvioFetchOtherError.
-   *
-   * @memberof MelhorEnvioFetchOtherError
    */
   constructor() {
     super('Other Error');

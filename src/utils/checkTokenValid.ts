@@ -2,11 +2,8 @@ import { decode } from 'universal-base64';
 
 /**
  * Check if token is valid
- *
- * @param {string} token Token
- * @returns {boolean} Returns true if the token is valid
  */
-export default function (token) {
+export default function checkTokenValid(token: string) {
   const tokenParts = token.split('.');
   const tokenPayload = JSON.parse(decode(tokenParts[1]));
   const timestamp = tokenPayload.exp;
