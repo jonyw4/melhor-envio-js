@@ -16,10 +16,11 @@ describe('MelhorEnvio.getShipmentServices()', () => {
     jest.clearAllMocks();
   });
   it('should call getShipmentServices API with success', async () => {
-    axios.request
-      .mockImplementationOnce(() => Promise.resolve({
-        data: [{ id: 1, name: 'Correios' }],
-      }));
+    axios.request.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: [{ id: 1, name: 'Correios' }]
+      })
+    );
 
     const me = new MelhorEnvio(token, true);
     const response = await me.getShipmentServices();
@@ -33,10 +34,10 @@ describe('MelhorEnvio.getShipmentServices()', () => {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       params: {},
-      timeout: 5000,
+      timeout: 5000
     });
   });
 });

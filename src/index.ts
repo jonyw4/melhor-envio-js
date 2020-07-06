@@ -1,2 +1,2 @@
-import MelhorEnvio from "./MelhorEnvio";
+import MelhorEnvio from './MelhorEnvio';
 export default MelhorEnvio;

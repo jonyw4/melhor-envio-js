@@ -5,7 +5,7 @@ import {
   AxiosTestError,
   MelhorEnvioFetchServerError,
   MelhorEnvioFetchClientError,
-  MelhorEnvioFetchOtherError,
+  MelhorEnvioFetchOtherError
 } from '../errors';
 
 jest.mock('axios');
@@ -23,17 +23,14 @@ describe('MelhorEnvio.fetch()', () => {
   });
   it('should fetch a GET request successfully from ME API', async () => {
     // @ts-ignore
-    axios.request.mockImplementationOnce(() => Promise.resolve({
-      data: { access_token: 'token123' },
-    }));
+    axios.request.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: { access_token: 'token123' }
+      })
+    );
 
     const me = new MelhorEnvio(token, true);
-    const response = await me.fetch(
-      '/token',
-      'GET',
-      {},
-      {},
-    );
+    const response = await me.fetch('/token', 'GET', {}, {});
 
     expect(response).toEqual({ access_token: 'token123' });
     expect(axios.request).toHaveBeenCalledTimes(1);
@@ -45,10 +42,10 @@ describe('MelhorEnvio.fetch()', () => {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       params: {},
-      timeout: 5000,
+      timeout: 5000
     });
   });
 
@@ -70,7 +67,9 @@ describe('MelhorEnvio.fetch()', () => {
 
   it('should fetch an MelhorEnvioFetchServerError from ME API', async () => {
     // @ts-ignore
-    axios.request.mockRejectedValue(new AxiosTestError({ response: { status: 404 } }));
+    axios.request.mockRejectedValue(
+      new AxiosTestError({ response: { status: 404 } })
+    );
     const me = new MelhorEnvio(token);
     const fetch = me.fetch('/test', 'GET');
     await expect(fetch).rejects.toThrow(MelhorEnvioFetchServerError);

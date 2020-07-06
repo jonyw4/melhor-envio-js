@@ -9,7 +9,7 @@ class AxiosTestError extends Error {
     config = '',
     code = '',
     request = '',
-    response = '',
+    response = ''
   }) {
     super(message);
 
@@ -28,7 +28,7 @@ class MelhorEnvioFetchServerError extends Error {
    *
    * @param status Status Code passed from the server
    */
-  constructor(status:number) {
+  constructor(status: number) {
     super(`Server error status ${status} `);
     this.name = 'MelhorEnvioFetchServerError';
     Object.setPrototypeOf(this, new.target.prototype);
@@ -61,5 +61,5 @@ export {
   AxiosTestError,
   MelhorEnvioFetchServerError,
   MelhorEnvioFetchClientError,
-  MelhorEnvioFetchOtherError,
+  MelhorEnvioFetchOtherError
 };

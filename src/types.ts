@@ -14,11 +14,11 @@ export interface MelhorEnvioBoxRange {
   width: Range;
   height: Range;
   length: Range;
-  sum: number
+  sum: number;
 }
 
 export interface ServerResponse<T> {
-  data: T
+  data: T;
 }
 
 export interface MelhorEnvioPackage {
@@ -49,26 +49,26 @@ export interface MelhorEnvioCalculateShipmentProduct {
 }
 
 export interface MelhorEnvioGetShipmentServicesResponseItem {
-   id: number;
-   name: string;
-   type: string;
-   /** Restriction information */
-   restrictions: {
-     /** Range of insurance allowed */
-     insurance_value: Range;
-     /** A list of allowed formats */
-     formats: {
-       box?: MelhorEnvioBoxRange;
-       roll?: MelhorEnvioBoxRange;
-       letter?: MelhorEnvioBoxRange;
-     };
-   };
-   /** ? */
-   requirements: Array<any>;
-   /** ? */
-   optionals: Array<any>;
-   company: MelhorEnvioCompany;
- }
+  id: number;
+  name: string;
+  type: string;
+  /** Restriction information */
+  restrictions: {
+    /** Range of insurance allowed */
+    insurance_value: Range;
+    /** A list of allowed formats */
+    formats: {
+      box?: MelhorEnvioBoxRange;
+      roll?: MelhorEnvioBoxRange;
+      letter?: MelhorEnvioBoxRange;
+    };
+  };
+  /** ? */
+  requirements: Array<any>;
+  /** ? */
+  optionals: Array<any>;
+  company: MelhorEnvioCompany;
+}
 
 export interface MelhorEnvioGetShipmentCalculateShipmentResponseItem {
   Id: number;

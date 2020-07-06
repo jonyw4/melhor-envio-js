@@ -1,15 +1,15 @@
-import axios, { Method,AxiosRequestConfig } from 'axios';
+import axios, { Method, AxiosRequestConfig } from 'axios';
 import type {
   MelhorEnvioPackage,
   MelhorEnvioCalculateShipmentProduct,
   MelhorEnvioGetShipmentCalculateShipmentResponseItem,
   MelhorEnvioGetShipmentServicesResponseItem,
-  ServerResponse,
-} from "../types";
+  ServerResponse
+} from '../types';
 import {
   MelhorEnvioFetchOtherError,
   MelhorEnvioFetchClientError,
-  MelhorEnvioFetchServerError,
+  MelhorEnvioFetchServerError
 } from '../errors';
 import checkTokenValid from '../utils/checkTokenValid';
 
@@ -24,13 +24,9 @@ class MelhorEnvio {
    * @param isSandbox Use or not a sandbox environment for testing.
    * @param timeout Timeout of the request.
    */
-  constructor(
-    token: string,
-    isSandbox: boolean = false,
-    timeout: number = 5000
-  ) {
+  constructor(token: string, isSandbox = false, timeout = 5000) {
     if (!checkTokenValid(token)) {
-      throw new Error("Your token has expired");
+      throw new Error('Your token has expired');
     }
     this.token = token;
     this.isSandbox = isSandbox;
@@ -47,25 +43,25 @@ class MelhorEnvio {
    */
   public async fetch<T = any>(
     url: string,
-    method: Method = "GET",
-    params: AxiosRequestConfig["params"] = {},
-    data: AxiosRequestConfig["data"] = {}
+    method: Method = 'GET',
+    params: AxiosRequestConfig['params'] = {},
+    data: AxiosRequestConfig['data'] = {}
   ) {
     try {
       const response = await axios.request<any, ServerResponse<T>>({
         baseURL: this.isSandbox
-          ? "https://sandbox.melhorenvio.com.br"
-          : "https://www.melhorenvio.com.br",
+          ? 'https://sandbox.melhorenvio.com.br'
+          : 'https://www.melhorenvio.com.br',
         method,
         url,
         timeout: this.timeout,
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${this.token}`,
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${this.token}`
         },
         params,
-        data,
+        data
       });
       return response.data;
     } catch (error) {
@@ -98,26 +94,26 @@ class MelhorEnvio {
     packageData: MelhorEnvioPackage = null,
     productsData: MelhorEnvioCalculateShipmentProduct[] = null,
     services: ServicesArg = null,
-    receipt: boolean = false,
-    ownHand: boolean = false,
-    insuranceValue: number = 0
+    receipt = false,
+    ownHand = false,
+    insuranceValue = 0
   ) {
     const data: any = {
       from: {
-        postal_code: fromPostalCode,
+        postal_code: fromPostalCode
       },
       to: {
-        postal_code: toPostalCode,
+        postal_code: toPostalCode
       },
       options: {
         receipt,
         own_hand: ownHand,
-        insurance_value: insuranceValue,
-      },
+        insurance_value: insuranceValue
+      }
     };
 
     if (services && Array.isArray(services) && services.length > 0) {
-      data.services = services.join(",");
+      data.services = services.join(',');
     }
     if (
       packageData &&
@@ -125,7 +121,7 @@ class MelhorEnvio {
       productsData.length > 0
     ) {
       throw new Error(
-        "You need to choose between package or product to calculate shipment"
+        'You need to choose between package or product to calculate shipment'
       );
     } else if (packageData && Object.keys(packageData).length > 0) {
       data.package = packageData;
@@ -136,13 +132,13 @@ class MelhorEnvio {
       ServicesArg extends string
         ? MelhorEnvioGetShipmentCalculateShipmentResponseItem
         : MelhorEnvioGetShipmentCalculateShipmentResponseItem[]
-    >("/api/v2/me/shipment/calculate", "POST", {}, data);
+    >('/api/v2/me/shipment/calculate', 'POST', {}, data);
   }
 
   public async getShipmentServices() {
     return this.fetch<MelhorEnvioGetShipmentServicesResponseItem>(
-      "/api/v2/me/shipment/services",
-      "GET"
+      '/api/v2/me/shipment/services',
+      'GET'
     );
   }
 }
