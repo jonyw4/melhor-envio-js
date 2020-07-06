@@ -18,6 +18,7 @@ class MelhorEnvio {
   timeout: number;
 
   /**
+   * 🚚 Melhor Envio Javascript API
    * @param token Token for API Requests. Can be generated direct in Melhor Envio Dashboard.
    * @param isSandbox Use or not a sandbox environment for testing.
    * @param timeout Timeout of the request.
@@ -36,13 +37,14 @@ class MelhorEnvio {
   }
 
   /**
-   * 📨 Fetch in the RTE API
+   * 📨 Fetch in the MelhorEnvio API
+   *
    * @param url URL. Route to the fetch. can be `/test`
    * @param method Method. Can be *GET*. *POST*.
    * @param params Querystring params. Its most used in *GET* requests.
    * @param data Data. Use for *POST* requests.
    */
-  private async fetch<T = any>(
+  public async fetch<T = any>(
     url: string,
     method: Method = "GET",
     params: AxiosRequestConfig["params"] = {},
