@@ -88,12 +88,13 @@ class MelhorEnvio {
    * @param ownHand If you want a own hand service
    * @param insuranceValue **Used only if you use packageData**. Value for the insurance
    */
-  public async calculateShipment<ServicesArg extends Array<string> | string>(
+  public async calculateShipment<ServiceArgs = Array<string> | string | null>(
     fromPostalCode: string,
     toPostalCode: string,
-    packageData: MelhorEnvioPackage = null,
-    productsData: MelhorEnvioCalculateShipmentProduct[] = null,
-    services: ServicesArg = null,
+    productsOrPackageData:
+      | MelhorEnvioPackage
+      | MelhorEnvioCalculateShipmentProduct[],
+    services: ServiceArgs,
     receipt = false,
     ownHand = false,
     insuranceValue = 0
@@ -115,21 +116,14 @@ class MelhorEnvio {
     if (services && Array.isArray(services) && services.length > 0) {
       data.services = services.join(',');
     }
-    if (
-      packageData &&
-      Object.keys(packageData).length > 0 &&
-      productsData.length > 0
-    ) {
-      throw new Error(
-        'You need to choose between package or product to calculate shipment'
-      );
-    } else if (packageData && Object.keys(packageData).length > 0) {
-      data.package = packageData;
-    } else if (productsData.length > 0) {
-      data.products = productsData;
+    if (Array.isArray(productsOrPackageData)) {
+      data.products = productsOrPackageData;
+    } else {
+      data.package = productsOrPackageData;
     }
+
     return this.fetch<
-      ServicesArg extends string
+      ServiceArgs extends string
         ? MelhorEnvioGetShipmentCalculateShipmentResponseItem
         : MelhorEnvioGetShipmentCalculateShipmentResponseItem[]
     >('/api/v2/me/shipment/calculate', 'POST', {}, data);

@@ -34,7 +34,6 @@ describe('MelhorEnvio.calculateShipment()', () => {
         weight: 0.14
       },
       [],
-      [],
       false,
       false,
       200
@@ -85,7 +84,6 @@ describe('MelhorEnvio.calculateShipment()', () => {
     const response = await me.calculateShipment(
       '12608220',
       '68637000',
-      null,
       [
         {
           id: '1',
@@ -141,36 +139,5 @@ describe('MelhorEnvio.calculateShipment()', () => {
       params: {},
       timeout: 5000
     });
-  });
-
-  it('should call calculateShipment with products and packages and throw Error', async () => {
-    const me = new MelhorEnvio(token, true);
-    const response = me.calculateShipment(
-      '12608220',
-      '68637000',
-      {
-        height: 11,
-        length: 20,
-        width: 30,
-        weight: 0.14
-      },
-      [
-        {
-          id: '1',
-          height: 11,
-          length: 20,
-          width: 30,
-          weight: 0.14,
-          insurance_value: 100,
-          quantity: 1
-        }
-      ],
-      ['1', '3'],
-      false,
-      false,
-      200
-    );
-
-    await expect(response).rejects.toThrow(Error);
   });
 });

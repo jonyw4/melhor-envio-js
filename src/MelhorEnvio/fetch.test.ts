@@ -68,7 +68,7 @@ describe('MelhorEnvio.fetch()', () => {
   it('should fetch an MelhorEnvioFetchServerError from ME API', async () => {
     // @ts-ignore
     axios.request.mockRejectedValue(
-      new AxiosTestError({ response: { status: 404 } })
+      new AxiosTestError({ response: { status: '404' } })
     );
     const me = new MelhorEnvio(token);
     const fetch = me.fetch('/test', 'GET');

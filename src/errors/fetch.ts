@@ -1,8 +1,8 @@
 class AxiosTestError extends Error {
-  config: string;
-  code: string;
-  request: string;
-  response: string;
+  config: any;
+  code: any;
+  request: any;
+  response: any;
   isAxiosError: boolean;
   constructor({
     message = 'Axios Test Error',
@@ -10,6 +10,13 @@ class AxiosTestError extends Error {
     code = '',
     request = '',
     response = ''
+  }: {
+    message?: any;
+    config?: any;
+    code?: any;
+    request?: any;
+    response?: any;
+    isAxiosError?: boolean;
   }) {
     super(message);
 
