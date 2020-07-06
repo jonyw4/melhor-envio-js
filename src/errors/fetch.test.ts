@@ -1,7 +1,7 @@
 import {
   MelhorEnvioFetchOtherError,
   MelhorEnvioFetchClientError,
-  MelhorEnvioFetchServerError,
+  MelhorEnvioFetchServerError
 } from '.';
 
 describe('MelhorEnvioFetchErrors', () => {

@@ -11,8 +11,12 @@ const oldToken = generateTestToken('2020-03-01');
 describe('MelhorEnvio.constructor()', () => {
   it('should class has all prototypes', async () => {
     expect(MelhorEnvio.prototype.hasOwnProperty('fetch')).toBe(true);
-    expect(MelhorEnvio.prototype.hasOwnProperty('getShipmentServices')).toBe(true);
-    expect(MelhorEnvio.prototype.hasOwnProperty('calculateShipment')).toBe(true);
+    expect(MelhorEnvio.prototype.hasOwnProperty('getShipmentServices')).toBe(
+      true
+    );
+    expect(MelhorEnvio.prototype.hasOwnProperty('calculateShipment')).toBe(
+      true
+    );
   });
 
   it('should constructor have default params and check const', async () => {

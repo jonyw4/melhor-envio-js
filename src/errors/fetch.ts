@@ -1,16 +1,22 @@
-/* eslint-disable max-classes-per-file */
-
-/**
- * @class
- * @augments {Error}
- */
 class AxiosTestError extends Error {
+  config: any;
+  code: any;
+  request: any;
+  response: any;
+  isAxiosError: boolean;
   constructor({
     message = 'Axios Test Error',
     config = '',
     code = '',
     request = '',
-    response = '',
+    response = ''
+  }: {
+    message?: any;
+    config?: any;
+    code?: any;
+    request?: any;
+    response?: any;
+    isAxiosError?: boolean;
   }) {
     super(message);
 
@@ -19,55 +25,42 @@ class AxiosTestError extends Error {
     this.request = request;
     this.response = response;
     this.isAxiosError = true;
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
-/**
- * @class
- * @augments Error
- */
 class MelhorEnvioFetchServerError extends Error {
   /**
    * Creates an instance of MelhorEnvioFetchServerError.
    *
-   * @param {number} status Status Code passed from the server
-   * @memberof MelhorEnvioFetchServerError
+   * @param status Status Code passed from the server
    */
-  constructor(status) {
+  constructor(status: number) {
     super(`Server error status ${status} `);
     this.name = 'MelhorEnvioFetchServerError';
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
-/**
- * @class
- * @augments Error
- */
 class MelhorEnvioFetchClientError extends Error {
   /**
    * Creates an instance of MelhorEnvioFetchClientError.
-   *
-   * @memberof MelhorEnvioFetchClientError
    */
   constructor() {
     super('Client error');
     this.name = 'MelhorEnvioFetchClientError';
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
-/**
- * @class
- * @augments Error
- */
 class MelhorEnvioFetchOtherError extends Error {
   /**
    * Creates an instance of MelhorEnvioFetchOtherError.
-   *
-   * @memberof MelhorEnvioFetchOtherError
    */
   constructor() {
     super('Other Error');
     this.name = 'MelhorEnvioFetchOtherError';
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
@@ -75,5 +68,5 @@ export {
   AxiosTestError,
   MelhorEnvioFetchServerError,
   MelhorEnvioFetchClientError,
-  MelhorEnvioFetchOtherError,
+  MelhorEnvioFetchOtherError
 };

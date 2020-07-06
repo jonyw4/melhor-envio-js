@@ -1,7 +1,6 @@
 import checkTokenValid from './checkTokenValid';
 import generateTestToken from './generateTestToken';
 
-
 describe('checkTokenValid()', () => {
   it('should return false for old token', async () => {
     const token = generateTestToken('2020-03-01');
