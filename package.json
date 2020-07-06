@@ -4,7 +4,7 @@
   "description": "🚚 Melhor Envio Javascript API",
   "main": "lib/index.js",
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
     "build": "tsc --project tsconfig.build.json && npm run docs",
