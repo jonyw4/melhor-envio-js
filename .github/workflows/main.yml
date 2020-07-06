@@ -4,6 +4,7 @@ env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  API_ME_TOKEN: ${{secrets.API_ME_TOKEN}}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,8 +18,8 @@ jobs:
       run: npm ci
     - name: Lint
       run: npm run lint
-    - name: Test
-      run: npm run test
+    - name: Unit Test
+      run: npm run test:ci
     - name: Build
       run: npm run build
     - name: Deploy Docs
