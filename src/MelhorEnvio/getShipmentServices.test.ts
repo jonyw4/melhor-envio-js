@@ -4,7 +4,7 @@ import generateTestToken from '../utils/generateTestToken';
 import MelhorEnvio from './index';
 
 jest.mock('axios');
-axios.mockResolvedValue();
+axios.request.mockResolvedValue();
 
 const myDate = new Date();
 myDate.setDate(myDate.getDate() + 1);
@@ -16,7 +16,7 @@ describe('MelhorEnvio.getShipmentServices()', () => {
     jest.clearAllMocks();
   });
   it('should call getShipmentServices API with success', async () => {
-    axios
+    axios.request
       .mockImplementationOnce(() => Promise.resolve({
         data: [{ id: 1, name: 'Correios' }],
       }));
@@ -24,8 +24,8 @@ describe('MelhorEnvio.getShipmentServices()', () => {
     const me = new MelhorEnvio(token, true);
     const response = await me.getShipmentServices();
     expect(response).toEqual([{ id: 1, name: 'Correios' }]);
-    expect(axios).toHaveBeenCalledTimes(1);
-    expect(axios).toHaveBeenCalledWith({
+    expect(axios.request).toHaveBeenCalledTimes(1);
+    expect(axios.request).toHaveBeenCalledWith({
       baseURL: 'https://sandbox.melhorenvio.com.br',
       url: '/api/v2/me/shipment/services',
       method: 'GET',

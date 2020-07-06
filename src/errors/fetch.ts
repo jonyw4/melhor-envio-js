@@ -18,6 +18,7 @@ class AxiosTestError extends Error {
     this.request = request;
     this.response = response;
     this.isAxiosError = true;
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
@@ -30,6 +31,7 @@ class MelhorEnvioFetchServerError extends Error {
   constructor(status:number) {
     super(`Server error status ${status} `);
     this.name = 'MelhorEnvioFetchServerError';
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
@@ -40,6 +42,7 @@ class MelhorEnvioFetchClientError extends Error {
   constructor() {
     super('Client error');
     this.name = 'MelhorEnvioFetchClientError';
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
@@ -50,6 +53,7 @@ class MelhorEnvioFetchOtherError extends Error {
   constructor() {
     super('Other Error');
     this.name = 'MelhorEnvioFetchOtherError';
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 

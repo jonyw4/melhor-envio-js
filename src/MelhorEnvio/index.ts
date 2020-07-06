@@ -4,6 +4,7 @@ import type {
   MelhorEnvioCalculateShipmentProduct,
   MelhorEnvioGetShipmentCalculateShipmentResponseItem,
   MelhorEnvioGetShipmentServicesResponseItem,
+  ServerResponse,
 } from "../types";
 import {
   MelhorEnvioFetchOtherError,
@@ -51,7 +52,7 @@ class MelhorEnvio {
     data: AxiosRequestConfig["data"] = {}
   ) {
     try {
-      const response = await axios.request<any, T>({
+      const response = await axios.request<any, ServerResponse<T>>({
         baseURL: this.isSandbox
           ? "https://sandbox.melhorenvio.com.br"
           : "https://www.melhorenvio.com.br",
@@ -66,8 +67,9 @@ class MelhorEnvio {
         params,
         data,
       });
-      return response;
+      return response.data;
     } catch (error) {
+      console.log(error);
       if (error.response) {
         throw new MelhorEnvioFetchServerError(error.response.status);
       } else if (error.request) {

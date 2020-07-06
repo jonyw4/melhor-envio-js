@@ -4,7 +4,7 @@ import MelhorEnvio from './index';
 
 jest.mock('axios');
 // @ts-ignore
-axios.mockResolvedValue();
+axios.request.mockResolvedValue();
 
 const myDate = new Date();
 myDate.setDate(myDate.getDate() + 1);
@@ -17,7 +17,7 @@ describe('MelhorEnvio.calculateShipment()', () => {
   });
   it('should call calculateShipment with package with success', async () => {
     // @ts-ignore
-    axios.mockImplementationOnce(() => Promise.resolve({
+    axios.request.mockImplementationOnce(() => Promise.resolve({
       data: [{ id: 1, name: 'Correios' }],
     }));
 
@@ -38,8 +38,8 @@ describe('MelhorEnvio.calculateShipment()', () => {
       200,
     );
     expect(response).toEqual([{ id: 1, name: 'Correios' }]);
-    expect(axios).toHaveBeenCalledTimes(1);
-    expect(axios).toHaveBeenCalledWith({
+    expect(axios.request).toHaveBeenCalledTimes(1);
+    expect(axios.request).toHaveBeenCalledWith({
       baseURL: 'https://sandbox.melhorenvio.com.br',
       url: '/api/v2/me/shipment/calculate',
       method: 'POST',
@@ -73,7 +73,7 @@ describe('MelhorEnvio.calculateShipment()', () => {
   });
   it('should call calculateShipment with products and services with success', async () => {
     // @ts-ignore
-    axios.mockImplementationOnce(() => Promise.resolve({
+    axios.request.mockImplementationOnce(() => Promise.resolve({
       data: [{ id: 1, name: 'Correios' }],
     }));
 
@@ -99,8 +99,8 @@ describe('MelhorEnvio.calculateShipment()', () => {
       200,
     );
     expect(response).toEqual([{ id: 1, name: 'Correios' }]);
-    expect(axios).toHaveBeenCalledTimes(1);
-    expect(axios).toHaveBeenCalledWith({
+    expect(axios.request).toHaveBeenCalledTimes(1);
+    expect(axios.request).toHaveBeenCalledWith({
       baseURL: 'https://sandbox.melhorenvio.com.br',
       url: '/api/v2/me/shipment/calculate',
       method: 'POST',

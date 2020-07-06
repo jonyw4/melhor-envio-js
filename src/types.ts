@@ -17,27 +17,9 @@ export interface MelhorEnvioBoxRange {
   sum: number
 }
 
-export interface MelhorEnvioGetShipmentServicesResponseItem {
-   id: number;
-   name: string;
-   type: string;
-   /** Restriction information */
-   restrictions: {
-     /** Range of insurance allowed */
-     insurance_value: Range;
-     /** A list of allowed formats */
-     formats: {
-       box?: MelhorEnvioBoxRange;
-       roll?: MelhorEnvioBoxRange;
-       letter?: MelhorEnvioBoxRange;
-     };
-   };
-   /** ? */
-   requirements: Array<any>;
-   /** ? */
-   optionals: Array<any>;
-   company: MelhorEnvioCompany;
- }
+export interface ServerResponse<T> {
+  data: T
+}
 
 export interface MelhorEnvioPackage {
   /** Width (cm) */
@@ -65,6 +47,28 @@ export interface MelhorEnvioCalculateShipmentProduct {
   /** Qty of items */
   quantity: number;
 }
+
+export interface MelhorEnvioGetShipmentServicesResponseItem {
+   id: number;
+   name: string;
+   type: string;
+   /** Restriction information */
+   restrictions: {
+     /** Range of insurance allowed */
+     insurance_value: Range;
+     /** A list of allowed formats */
+     formats: {
+       box?: MelhorEnvioBoxRange;
+       roll?: MelhorEnvioBoxRange;
+       letter?: MelhorEnvioBoxRange;
+     };
+   };
+   /** ? */
+   requirements: Array<any>;
+   /** ? */
+   optionals: Array<any>;
+   company: MelhorEnvioCompany;
+ }
 
 export interface MelhorEnvioGetShipmentCalculateShipmentResponseItem {
   Id: number;
