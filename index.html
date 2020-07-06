@@ -1,164 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html class="default no-js">
 <head>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
-
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="./build/entry.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
-  <link type="text/css" rel="stylesheet" href="">
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>menv-js</title>
+	<meta name="description" content="Documentation for menv-js">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
 </head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">menv-js</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>menv-js</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#melhor-envio-client-api" id="melhor-envio-client-api" style="color: inherit; text-decoration: none;">
+					<h1>Melhor Envio Client API</h1>
+				</a>
+				<p><a href="https://www.npmjs.com/package/menv-js"><img src="https://img.shields.io/npm/v/menv-js.svg" alt="npm (scoped)"></a>
+					<img src="https://github.com/jonyw4/melhor-envio-js/workflows/Test,%20build%20and%20deploy/badge.svg" alt="Build Status">
+					<a href="https://codecov.io/gh/jonyw4/melhor-envio-js"><img src="https://codecov.io/gh/jonyw4/melhor-envio-js/branch/master/graph/badge.svg" alt="codecov"></a>
+				<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
+				<p>A JavaScript library to interface with Melhor Envio API, it works with Node.js. The <a href="https://jonyw4.github.io/melhor-envio-js/">documentation can be found here</a>.</p>
+				<a href="#🌟-features" id="🌟-features" style="color: inherit; text-decoration: none;">
+					<h2>🌟 Features</h2>
+				</a>
+				<p>This library its in <strong>early stages</strong>, so it doesn&#39;t have interfaces for all MelhorEnvio features (Your PR is very welcome).</p>
+				<p>With this library you can:</p>
+				<ul>
+					<li>Get Shipment Services</li>
+					<li>Calculate Shipment</li>
+				</ul>
+				<a href="#📖-how-to-use" id="📖-how-to-use" style="color: inherit; text-decoration: none;">
+					<h2>📖 How to use?</h2>
+				</a>
+				<p>Install the library</p>
+				<pre><code class="language-bash">npm i menv-js</code></pre>
+				<p>Import the library</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> MelhorEnvio <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;menv-js&#x27;</span>;
 
-
-
-<body class="layout small-header">
-    <div id="stickyNavbarOverlay"></div>
-    
-
-<div class="top-nav">
-    <div class="inner">
-        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-        <div class="logo">
-            
-             
-                <a href="index.html">
-                    <h1 class="navbar-item">Melhor Envio JS - By CarimFlex</h1>
-                </a>
-            
-        </div>
-        <div class="menu">
-            
-            <div class="navigation">
-                <a
-                    href="index.html"
-                    class="link"
-                >
-                    API Documentation
-                </a>
-                <div class="dropdown is-hoverable is-right">
-                    <a class="dropdown-trigger link">
-                        Tutorials
-                        <i class="fas fa-chevron-down fa-xs"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-content">
-                        
-                        </div>
-                    </div>
-                </div>
-                
-                
-            </div>
-        </div>
-    </div>
+<span class="hljs-keyword">const</span> menv = <span class="hljs-keyword">new</span> MelhorEnvio(token, isSandbox, timeout);
+<span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> menv.getShipmentServices();</code></pre>
+				<a href="#📚-api-docs" id="📚-api-docs" style="color: inherit; text-decoration: none;">
+					<h2>📚 API Docs</h2>
+				</a>
+				<p>This library provides a promise based interface for all functions. Before you
+					can use the library, you need to provide authentication details which will be
+				used through API calls.</p>
+				<p>For a detailed documentation, see our <a href="https://jonyw4.github.io/melhor-envio-js/">Documentation</a>.</p>
+				<a href="#😍-do-you-like" id="😍-do-you-like" style="color: inherit; text-decoration: none;">
+					<h2>😍 Do you like?</h2>
+				</a>
+				<p><em>Please, consider supporting my work as a lot of effort takes place to create this repo! Thanks a lot.</em></p>
+				<p><a href="https://www.buymeacoffee.com/jonycelio" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/axiostesterror.html" class="tsd-kind-icon">Axios<wbr>Test<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/melhorenvio.html" class="tsd-kind-icon">Melhor<wbr>Envio</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/melhorenviofetchclienterror.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Fetch<wbr>Client<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/melhorenviofetchothererror.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Fetch<wbr>Other<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/melhorenviofetchservererror.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Fetch<wbr>Server<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/melhorenvioboxrange.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Box<wbr>Range</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/melhorenviocalculateshipmentproduct.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Calculate<wbr>Shipment<wbr>Product</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/melhorenviocompany.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Company</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/melhorenviogetshipmentcalculateshipmentresponseitem.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Get<wbr>Shipment<wbr>Calculate<wbr>Shipment<wbr>Response<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/melhorenviogetshipmentservicesresponseitem.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Get<wbr>Shipment<wbr>Services<wbr>Response<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/melhorenviopackage.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Package</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/range.html" class="tsd-kind-icon">Range</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/serverresponse.html" class="tsd-kind-icon">Server<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mydate" class="tsd-kind-icon">my<wbr>Date</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#oldtoken" class="tsd-kind-icon">old<wbr>Token</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#token" class="tsd-kind-icon">token</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checktokenvalid" class="tsd-kind-icon">check<wbr>Token<wbr>Valid</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#generatetesttoken" class="tsd-kind-icon">generate<wbr>Test<wbr>Token</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
 </div>
-    <div id="main">
-        <div
-            class="sidebar "
-            id="sidebarNav"
-        >
-            
-            <nav>
-                
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-melhor-envio-js.html">melhor-envio-js</a></li></ul><h3>Classes</h3><ul><li><a href="AxiosTestError.html">AxiosTestError</a></li><li><a href="MelhorEnvioFetchClientError.html">MelhorEnvioFetchClientError</a></li><li><a href="MelhorEnvioFetchOtherError.html">MelhorEnvioFetchOtherError</a></li><li><a href="MelhorEnvioFetchServerError.html">MelhorEnvioFetchServerError</a></li><li><a href="module-melhor-envio-js_MelhorEnvio.html">MelhorEnvio</a></li></ul><h3><a href="global.html">Global</a></h3></div>
-                
-            </nav>
-        </div>
-        <div class="core" id="main-content-wrapper">
-            <div class="content">
-                <header class="page-title">
-                    <p>Title</p>
-                    <h1>Home</h1>
-                </header>
-                
-
-
-
-    
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-    <section>
-        <article><h1>Melhor Envio Client API</h1>
-<p><a href="https://www.npmjs.com/package/menv-js"><img src="https://img.shields.io/npm/v/menv-js.svg" alt="npm (scoped)"></a>
-<img src="https://github.com/jonyw4/melhor-envio-js/workflows/Test,%20build%20and%20deploy/badge.svg" alt="Build Status">
-<a href="https://codecov.io/gh/jonyw4/melhor-envio-js"><img src="https://codecov.io/gh/jonyw4/melhor-envio-js/branch/master/graph/badge.svg" alt="codecov"></a>
-<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
-<p>A JavaScript library to interface with Melhor Envio API, it works in the browser and with Node.js. The <a href="https://jonyw4.github.io/melhor-envio-js/">documentation can be found here</a>.</p>
-<h3>Do you like?</h3>
-<p><em>Please, consider supporting my work as a lot of effort takes place to create this component! Thanks a lot.</em></p>
-<p><a href="https://www.buymeacoffee.com/jonycelio" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a></p>
-<h2>API Docs</h2>
-<p>This library provides a promise based interface for all functions. Before you
-can use the library, you need to provide authentication details which will be
-used through API calls.</p>
-<p>For a detailed documentation, see our <a href="https://jonyw4.github.io/melhor-envio-js/">Documentation</a>.</p>
-<h2>Roadmap</h2>
-<ul>
-<li>[ ] Change project to Typescript</li>
-<li>[ ] Generate token direct in the client based client id and secret</li>
-</ul></article>
-    </section>
-
-
-
-
-
-
-            </div>
-            
-            <footer class="footer">
-                <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0-dev</a></p>
-                    <p class="sidebar-created-by">
-                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
-                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
-                    </p>
-                </div>
-            </footer>
-            
-        </div>
-        <div id="side-nav" class="side-nav">
-        </div>
-    </div>
-<script src="scripts/app.min.js"></script>
-<script>PR.prettyPrint();</script>
-<script src="scripts/linenumber.js"> </script>
-
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
