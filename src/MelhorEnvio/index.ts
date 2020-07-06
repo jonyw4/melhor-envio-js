@@ -88,12 +88,12 @@ class MelhorEnvio {
    * @param ownHand If you want a own hand service
    * @param insuranceValue **Used only if you use packageData**. Value for the insurance
    */
-  public async calculateShipment(
+  public async calculateShipment<ServicesArg extends Array<string> | string>(
     fromPostalCode: string,
     toPostalCode: string,
     packageData: MelhorEnvioPackage = null,
-    productsData: MelhorEnvioCalculateShipmentProduct[] = [],
-    services: string[] = [],
+    productsData: MelhorEnvioCalculateShipmentProduct[] = null,
+    services: ServicesArg = null,
     receipt: boolean = false,
     ownHand: boolean = false,
     insuranceValue: number = 0
@@ -112,7 +112,7 @@ class MelhorEnvio {
       },
     };
 
-    if (services.length > 0) {
+    if (services && Array.isArray(services) && services.length > 0) {
       data.services = services.join(",");
     }
     if (
@@ -128,17 +128,19 @@ class MelhorEnvio {
     } else if (productsData.length > 0) {
       data.products = productsData;
     }
-    return this.fetch<MelhorEnvioGetShipmentCalculateShipmentResponseItem>(
-      "/api/v2/me/shipment/calculate",
-      "POST",
-      {},
-      data
-    );
+    return this.fetch<
+      ServicesArg extends string
+        ? MelhorEnvioGetShipmentCalculateShipmentResponseItem
+        : MelhorEnvioGetShipmentCalculateShipmentResponseItem[]
+    >("/api/v2/me/shipment/calculate", "POST", {}, data);
   }
 
-  public async getShipmentServices(){
-    return this.fetch<MelhorEnvioGetShipmentServicesResponseItem>("/api/v2/me/shipment/services", "GET");
-  };
+  public async getShipmentServices() {
+    return this.fetch<MelhorEnvioGetShipmentServicesResponseItem>(
+      "/api/v2/me/shipment/services",
+      "GET"
+    );
+  }
 }
 
 export default MelhorEnvio;
