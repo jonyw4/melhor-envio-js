@@ -3,10 +3,12 @@ export interface MelhorEnvioCompany {
   name: string;
   picture: string;
 }
-interface Range{
+
+interface Range {
   min: number;
   max: number;
 }
+
 export interface MelhorEnvioBoxRange {
   weight: Range;
   width: Range;
@@ -14,6 +16,7 @@ export interface MelhorEnvioBoxRange {
   length: Range;
   sum: number
 }
+
 export interface MelhorEnvioGetShipmentServicesResponseItem {
    id: number;
    name: string;
@@ -29,11 +32,12 @@ export interface MelhorEnvioGetShipmentServicesResponseItem {
        letter?: MelhorEnvioBoxRange;
      };
    };
+   /** ? */
    requirements: Array<any>;
+   /** ? */
    optionals: Array<any>;
    company: MelhorEnvioCompany;
  }
-
 
 export interface MelhorEnvioPackage {
   /** Width (cm) */
@@ -70,15 +74,9 @@ export interface MelhorEnvioGetShipmentCalculateShipmentResponseItem {
   discount: number;
   currency: string;
   delivery_time: number;
-  delivery_range: {
-    min: number;
-    max: number;
-  };
+  delivery_range: Range;
   custom_delivery_time: number;
-  custom_delivery_range: {
-    min: number;
-    max: number;
-  };
+  custom_delivery_range: Range;
   packages: Array<any>;
   additional_services: {
     receipt: boolean;
