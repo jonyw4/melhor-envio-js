@@ -33,6 +33,10 @@ class MelhorEnvio {
     this.timeout = timeout;
   }
 
+  private sanitizePostalCode(postalCode: string) {
+    return postalCode.toString().replace(/\D+/g, '');
+  }
+
   /**
    * 📨 Fetch in the MelhorEnvio API
    *
@@ -101,10 +105,10 @@ class MelhorEnvio {
   ) {
     const data: any = {
       from: {
-        postal_code: fromPostalCode
+        postal_code: this.sanitizePostalCode(fromPostalCode)
       },
       to: {
-        postal_code: toPostalCode
+        postal_code: this.sanitizePostalCode(toPostalCode)
       },
       options: {
         receipt,
