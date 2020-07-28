@@ -1,3 +1,5 @@
+import { AxiosResponse, AxiosRequestConfig } from 'axios';
+
 class AxiosTestError extends Error {
   config: any;
   code: any;
@@ -29,36 +31,56 @@ class AxiosTestError extends Error {
   }
 }
 
-class MelhorEnvioFetchServerError extends Error {
-  /**
-   * Creates an instance of MelhorEnvioFetchServerError.
-   *
-   * @param status Status Code passed from the server
-   */
-  constructor(status: number) {
-    super(`Server error status ${status} `);
+class AxiosError<T> extends Error {
+  config: AxiosRequestConfig;
+  code?: string;
+  request?: any;
+  response?: AxiosResponse<T>;
+  constructor(
+    message: string,
+    config: AxiosRequestConfig,
+    code?: string | undefined,
+    request?: any,
+    response?: AxiosResponse<T>
+  ) {
+    super(message);
+    this.config = config;
+    this.code = code;
+    this.request = request;
+    this.response = response;
+  }
+}
+
+class MelhorEnvioFetchServerError<T> extends AxiosError<T> {
+  constructor(
+    message: string,
+    config: AxiosRequestConfig,
+    code: string | undefined,
+    request: any,
+    response: AxiosResponse<T>
+  ) {
+    super(message, config, code, request, response);
     this.name = 'MelhorEnvioFetchServerError';
     Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
-class MelhorEnvioFetchClientError extends Error {
-  /**
-   * Creates an instance of MelhorEnvioFetchClientError.
-   */
-  constructor() {
-    super('Client error');
+class MelhorEnvioFetchClientError<T> extends AxiosError<T> {
+  constructor(
+    message: string,
+    config: AxiosRequestConfig,
+    code: string | undefined,
+    request: any
+  ) {
+    super(message, config, code, request);
     this.name = 'MelhorEnvioFetchClientError';
     Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
-class MelhorEnvioFetchOtherError extends Error {
-  /**
-   * Creates an instance of MelhorEnvioFetchOtherError.
-   */
-  constructor() {
-    super('Other Error');
+class MelhorEnvioFetchOtherError<T> extends AxiosError<T> {
+  constructor(message: string, config: AxiosRequestConfig) {
+    super(message, config);
     this.name = 'MelhorEnvioFetchOtherError';
     Object.setPrototypeOf(this, new.target.prototype);
   }

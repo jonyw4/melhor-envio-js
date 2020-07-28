@@ -1,4 +1,4 @@
-import axios, { Method, AxiosRequestConfig } from 'axios';
+import axios, { Method, AxiosRequestConfig, AxiosError } from 'axios';
 import type {
   MelhorEnvioPackage,
   MelhorEnvioCalculateShipmentProduct,
@@ -51,8 +51,8 @@ class MelhorEnvio {
     params: AxiosRequestConfig['params'] = {},
     data: AxiosRequestConfig['data'] = {}
   ) {
-    try {
-      const response = await axios.request<any, ServerResponse<T>>({
+    return axios
+      .request<any, ServerResponse<T>>({
         baseURL: this.isSandbox
           ? 'https://sandbox.melhorenvio.com.br'
           : 'https://www.melhorenvio.com.br',
@@ -66,18 +66,28 @@ class MelhorEnvio {
         },
         params,
         data
+      })
+      .then((response) => response.data)
+      .catch((error: AxiosError<any>) => {
+        if (error.response) {
+          throw new MelhorEnvioFetchServerError(
+            error.message,
+            error.config,
+            error.code,
+            error.request,
+            error.response
+          );
+        } else if (error.request) {
+          throw new MelhorEnvioFetchClientError(
+            error.message,
+            error.config,
+            error.code,
+            error.request
+          );
+        } else {
+          throw new MelhorEnvioFetchOtherError(error.message, error.config);
+        }
       });
-      return response.data;
-    } catch (error) {
-      console.log(error);
-      if (error.response) {
-        throw new MelhorEnvioFetchServerError(error.response.status);
-      } else if (error.request) {
-        throw new MelhorEnvioFetchClientError();
-      } else {
-        throw new MelhorEnvioFetchOtherError();
-      }
-    }
   }
 
   /**
