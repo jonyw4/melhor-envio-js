@@ -135,9 +135,13 @@ export namespace Response {
     export type Calculate<T = Array<string> | string | null> = T extends string
       ? CalculateItem
       : CalculateItem[];
+
     /**
-     * **Nota: entre os dados retornados constará o id da etiqueta. Este id deverá ser salvo em vias de realizar futuras interações para esta etiqueta, como o momento da compra da etiqueta (checkout).**
+     * Após feita a requisição, será retornado, entre outros dados, uma url de redirecionamento para concluir o pagamento junto ao gateway.
      */
+    export interface Checkout {
+      id: string;
+    }
   }
   export interface Cart {
     id: string;
@@ -157,6 +161,21 @@ export namespace Request {
       ownHand: boolean;
       insuranceValue: number;
     }
+    /**
+     * - Para poder realizar a compra da etiqueta, o usuário deverá ter na carteira do Melhor Envio o saldo necessário para tal compra.
+     * - Deverá ser respeitado o limite de envios disponível no momento da compra.
+     */
+    interface CheckoutBase {
+      orders: string[];
+    }
+    interface CheckoutWithGateway extends CheckoutBase {
+      gateway: 'moip' | 'mercado-pago' | 'picpay' | 'pagseguro';
+      /**
+       * URL de redirecionamento para retorno após o pagamento
+       */
+      redirect: string;
+    }
+    export type Checkout = CheckoutBase | CheckoutWithGateway;
   }
 
   type CartProducts = Array<{

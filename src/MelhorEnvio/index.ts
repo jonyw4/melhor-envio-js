@@ -139,6 +139,15 @@ class MelhorEnvio {
   ): Promise<Response.Cart> {
     return this.fetch<Response.Cart>('/api/v2/me/cart', 'POST', {}, data);
   }
+
+  public async checkout(data: Request.Shipment.Checkout) {
+    return this.fetch<Response.Shipment.Checkout>(
+      '/api/v2/me/shipment/checkout',
+      'POST',
+      {},
+      data
+    );
+  }
 }
 
 export default MelhorEnvio;
