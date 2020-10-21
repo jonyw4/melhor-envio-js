@@ -1,10 +1,9 @@
 import axios, { Method, AxiosRequestConfig, AxiosError } from 'axios';
 import type {
-  MelhorEnvioPackage,
   MelhorEnvioCalculateShipmentProduct,
-  MelhorEnvioGetShipmentCalculateShipmentResponseItem,
-  MelhorEnvioGetShipmentServicesResponseItem,
-  ServerResponse
+  MelhorEnvioPackage,
+  Request,
+  Response
 } from '../types';
 import {
   MelhorEnvioFetchOtherError,
@@ -33,7 +32,7 @@ class MelhorEnvio {
     this.timeout = timeout;
   }
 
-  private sanitizePostalCode(postalCode: string) {
+  private sanitizePostalCode(postalCode: string): string {
     return postalCode.toString().replace(/\D+/g, '');
   }
 
@@ -50,9 +49,9 @@ class MelhorEnvio {
     method: Method = 'GET',
     params: AxiosRequestConfig['params'] = {},
     data: AxiosRequestConfig['data'] = {}
-  ) {
+  ): Promise<T> {
     return axios
-      .request<any, ServerResponse<T>>({
+      .request<any, Response.Server<T>>({
         baseURL: this.isSandbox
           ? 'https://sandbox.melhorenvio.com.br'
           : 'https://www.melhorenvio.com.br',
@@ -92,27 +91,16 @@ class MelhorEnvio {
 
   /**
    * 💵 Calculate quote for shipment
-   *
-   * @param fromPostalCode Origin Postal Code
-   * @param toPostalCode Destination Postal Code
-   * @param packageData All data of package. **If you chose these option you cant choose `productsData`**
-   * @param productsData A list of product required for calculate quote. **If you chose these option you cant choose `packageData`**
-   * @param services A list of services ID that you want to get in response
-   * @param receipt If you want a receipt service
-   * @param ownHand If you want a own hand service
-   * @param insuranceValue **Used only if you use packageData**. Value for the insurance
    */
-  public async calculateShipment<ServiceArgs = Array<string> | string | null>(
-    fromPostalCode: string,
-    toPostalCode: string,
-    productsOrPackageData:
-      | MelhorEnvioPackage
-      | MelhorEnvioCalculateShipmentProduct[],
-    services: ServiceArgs,
+  public async calculateShipment<T extends Request.Shipment.Calculate>({
+    fromPostalCode,
+    toPostalCode,
+    productsOrPackageData,
+    services,
     receipt = false,
     ownHand = false,
     insuranceValue = 0
-  ) {
+  }: T): Promise<Response.Shipment.Calculate<T['services']>> {
     const data: any = {
       from: {
         postal_code: this.sanitizePostalCode(fromPostalCode)
@@ -136,15 +124,16 @@ class MelhorEnvio {
       data.package = productsOrPackageData;
     }
 
-    return this.fetch<
-      ServiceArgs extends string
-        ? MelhorEnvioGetShipmentCalculateShipmentResponseItem
-        : MelhorEnvioGetShipmentCalculateShipmentResponseItem[]
-    >('/api/v2/me/shipment/calculate', 'POST', {}, data);
+    return this.fetch<Response.Shipment.Calculate<T['services']>>(
+      '/api/v2/me/shipment/calculate',
+      'POST',
+      {},
+      data
+    );
   }
 
-  public async getShipmentServices() {
-    return this.fetch<MelhorEnvioGetShipmentServicesResponseItem>(
+  public async getShipmentServices(): Promise<Response.Shipment.Services> {
+    return this.fetch<Response.Shipment.Services>(
       '/api/v2/me/shipment/services',
       'GET'
     );

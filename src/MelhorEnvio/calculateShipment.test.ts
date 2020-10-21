@@ -24,20 +24,20 @@ describe('MelhorEnvio.calculateShipment()', () => {
     );
 
     const me = new MelhorEnvio(token, true);
-    const response = await me.calculateShipment(
-      '12608220',
-      '68637000',
-      {
+    const response = await me.calculateShipment({
+      fromPostalCode: '12608220',
+      toPostalCode: '68637000',
+      productsOrPackageData: {
         height: 11,
         length: 20,
         width: 30,
         weight: 0.14
       },
-      [],
-      false,
-      false,
-      200
-    );
+      services: [],
+      receipt: false,
+      ownHand: false,
+      insuranceValue: 200
+    });
     expect(response).toEqual([{ id: 1, name: 'Correios' }]);
     expect(axios.request).toHaveBeenCalledTimes(1);
     expect(axios.request).toHaveBeenCalledWith({
@@ -81,10 +81,10 @@ describe('MelhorEnvio.calculateShipment()', () => {
     );
 
     const me = new MelhorEnvio(token, true);
-    const response = await me.calculateShipment(
-      '12608220',
-      '68637000',
-      [
+    const response = await me.calculateShipment({
+      fromPostalCode: '12608220',
+      toPostalCode: '68637000',
+      productsOrPackageData: [
         {
           id: '1',
           height: 11,
@@ -95,11 +95,11 @@ describe('MelhorEnvio.calculateShipment()', () => {
           quantity: 1
         }
       ],
-      ['1', '3'],
-      false,
-      false,
-      200
-    );
+      services: ['1', '3'],
+      receipt: false,
+      ownHand: false,
+      insuranceValue: 200
+    });
     expect(response).toEqual([{ id: 1, name: 'Correios' }]);
     expect(axios.request).toHaveBeenCalledTimes(1);
     expect(axios.request).toHaveBeenCalledWith({
