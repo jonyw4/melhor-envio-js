@@ -1,10 +1,5 @@
 import axios, { Method, AxiosRequestConfig, AxiosError } from 'axios';
-import type {
-  MelhorEnvioCalculateShipmentProduct,
-  MelhorEnvioPackage,
-  Request,
-  Response
-} from '../types';
+import type { Request, Response, ShippingMethods } from '../types';
 import {
   MelhorEnvioFetchOtherError,
   MelhorEnvioFetchClientError,
@@ -137,6 +132,12 @@ class MelhorEnvio {
       '/api/v2/me/shipment/services',
       'GET'
     );
+  }
+
+  public async addItemInCart<T, S, NC>(
+    data: T & Request.Cart<S, NC>
+  ): Promise<Response.Cart> {
+    return this.fetch<Response.Cart>('/api/v2/me/cart', 'POST', {}, data);
   }
 }
 

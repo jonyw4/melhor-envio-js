@@ -1,5 +1,5 @@
-// @ts-nocheck
 import axios from 'axios';
+import { ShippingMethods } from '../types';
 import generateTestToken from '../utils/generateTestToken';
 import MelhorEnvio from './index';
 
@@ -23,6 +23,19 @@ describe('MelhorEnvio.getShipmentServices()', () => {
     );
 
     const me = new MelhorEnvio(token, true);
+    const x = await me.addItemInCart({
+      service: ShippingMethods.CorreiosPac,
+      agency: null,
+      options: {
+        insurance_value: 100,
+        receipt: false,
+        own_hand: false,
+        non_commercial: true,
+        reverse: false,
+        platform: 'x',
+        invoice: null
+      }
+    });
     const response = await me.getShipmentServices();
     expect(response).toEqual([{ id: 1, name: 'Correios' }]);
     expect(axios.request).toHaveBeenCalledTimes(1);
