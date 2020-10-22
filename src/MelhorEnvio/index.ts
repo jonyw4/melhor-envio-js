@@ -1,3 +1,4 @@
+import { Generate } from './../types';
 import axios, { Method, AxiosRequestConfig, AxiosError } from 'axios';
 import type { Request, Response, ShippingMethods } from '../types';
 import {
@@ -143,6 +144,33 @@ class MelhorEnvio {
   public async checkout(data: Request.Shipment.Checkout) {
     return this.fetch<Response.Shipment.Checkout>(
       '/api/v2/me/shipment/checkout',
+      'POST',
+      {},
+      data
+    );
+  }
+
+  public async tracking(data: Request.Shipment.Tracking) {
+    return this.fetch<Response.Shipment.Tracking>(
+      '/api/v2/me/shipment/tracking',
+      'POST',
+      {},
+      data
+    );
+  }
+
+  public async printLabel(data: Request.Shipment.Print) {
+    return this.fetch<Response.Shipment.Print>(
+      '/api/v2/me/shipment/print',
+      'POST',
+      {},
+      data
+    );
+  }
+
+  public async generateLabel(data: Request.Shipment.Generate) {
+    return this.fetch<Response.Shipment.Generate>(
+      '/api/v2/me/shipment/generate',
       'POST',
       {},
       data

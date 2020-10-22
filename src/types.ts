@@ -147,6 +147,9 @@ export namespace Response {
     id: string;
   }
 }
+interface Orders {
+  orders: string[];
+}
 
 export namespace Request {
   export namespace Shipment {
@@ -161,21 +164,24 @@ export namespace Request {
       ownHand: boolean;
       insuranceValue: number;
     }
-    /**
-     * - Para poder realizar a compra da etiqueta, o usuário deverá ter na carteira do Melhor Envio o saldo necessário para tal compra.
-     * - Deverá ser respeitado o limite de envios disponível no momento da compra.
-     */
-    interface CheckoutBase {
-      orders: string[];
-    }
-    interface CheckoutWithGateway extends CheckoutBase {
+
+    interface CheckoutWithGateway extends Orders {
       gateway: 'moip' | 'mercado-pago' | 'picpay' | 'pagseguro';
       /**
        * URL de redirecionamento para retorno após o pagamento
        */
       redirect: string;
     }
-    export type Checkout = CheckoutBase | CheckoutWithGateway;
+    export type Checkout = Orders | CheckoutWithGateway;
+
+    export interface Print extends Orders {
+      /**
+       * É possível solicitar que o link seja público ou privado através do parâmetro mode. Por padrão, todos os links de impressão solicitados sem a definisção do parâmetro mode como public são privados. Sendo o link público, qualquer pessoa com o link pode acessar. Sendo o link privado, é necessário estar logado no Melhor Envio com o usuário que gerou a etiqueta.
+       */
+      mode: 'public' | 'private';
+    }
+    export type Generate = Orders;
+    export type Tracking = Orders;
   }
 
   type CartProducts = Array<{
