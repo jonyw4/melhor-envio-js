@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MelhorEnvioCalculateShipmentProduct | menv-js</title>
+	<title>RequestWithOrders | menv-js</title>
 	<meta name="description" content="Documentation for menv-js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="melhorenviocalculateshipmentproduct.html">MelhorEnvioCalculateShipmentProduct</a>
+					<a href="requestwithorders.html">RequestWithOrders</a>
 				</li>
 			</ul>
-			<h1>Interface MelhorEnvioCalculateShipmentProduct</h1>
+			<h1>Interface RequestWithOrders</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,15 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">MelhorEnvioCalculateShipmentProduct</span>
+						<span class="target">RequestWithOrders</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="request.shipment.checkoutwithgateway.html" class="tsd-signature-type">CheckoutWithGateway</a>
+							</li>
+							<li>
+								<a href="request.shipment.print.html" class="tsd-signature-type">Print</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -81,13 +89,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="melhorenviocalculateshipmentproduct.html#height" class="tsd-kind-icon">height</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="melhorenviocalculateshipmentproduct.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="melhorenviocalculateshipmentproduct.html#insurance_value" class="tsd-kind-icon">insurance_<wbr>value</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="melhorenviocalculateshipmentproduct.html#length" class="tsd-kind-icon">length</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="melhorenviocalculateshipmentproduct.html#quantity" class="tsd-kind-icon">quantity</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="melhorenviocalculateshipmentproduct.html#weight" class="tsd-kind-icon">weight</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="melhorenviocalculateshipmentproduct.html#width" class="tsd-kind-icon">width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="requestwithorders.html#orders" class="tsd-kind-icon">orders</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,104 +98,14 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="height" class="tsd-anchor"></a>
-					<h3>height</h3>
-					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="orders" class="tsd-anchor"></a>
+					<h3>orders</h3>
+					<div class="tsd-signature tsd-kind-icon">orders<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/types.ts#L155">src/types.ts:155</a></li>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/types.ts#L264">src/types.ts:264</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Height (cm)</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/types.ts#L151">src/types.ts:151</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="insurance_value" class="tsd-anchor"></a>
-					<h3>insurance_<wbr>value</h3>
-					<div class="tsd-signature tsd-kind-icon">insurance_<wbr>value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/types.ts#L161">src/types.ts:161</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Value for the insurance</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="length" class="tsd-anchor"></a>
-					<h3>length</h3>
-					<div class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/types.ts#L157">src/types.ts:157</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Length (cm)</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="quantity" class="tsd-anchor"></a>
-					<h3>quantity</h3>
-					<div class="tsd-signature tsd-kind-icon">quantity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/types.ts#L163">src/types.ts:163</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Qty of items</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="weight" class="tsd-anchor"></a>
-					<h3>weight</h3>
-					<div class="tsd-signature tsd-kind-icon">weight<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/types.ts#L159">src/types.ts:159</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Weight (kg)</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="width" class="tsd-anchor"></a>
-					<h3>width</h3>
-					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/types.ts#L153">src/types.ts:153</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Width (cm)</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -240,36 +152,9 @@
 					<li class=" tsd-kind-interface">
 						<a href="melhorenvioboxrange.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Box<wbr>Range</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
+					<li class=" tsd-kind-interface">
 						<a href="melhorenviocalculateshipmentproduct.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Calculate<wbr>Shipment<wbr>Product</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="melhorenviocalculateshipmentproduct.html#height" class="tsd-kind-icon">height</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="melhorenviocalculateshipmentproduct.html#id" class="tsd-kind-icon">id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="melhorenviocalculateshipmentproduct.html#insurance_value" class="tsd-kind-icon">insurance_<wbr>value</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="melhorenviocalculateshipmentproduct.html#length" class="tsd-kind-icon">length</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="melhorenviocalculateshipmentproduct.html#quantity" class="tsd-kind-icon">quantity</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="melhorenviocalculateshipmentproduct.html#weight" class="tsd-kind-icon">weight</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="melhorenviocalculateshipmentproduct.html#width" class="tsd-kind-icon">width</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="melhorenviocompany.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Company</a>
 					</li>
@@ -282,9 +167,18 @@
 					<li class=" tsd-kind-interface">
 						<a href="range.html" class="tsd-kind-icon">Range</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="requestwithorders.html" class="tsd-kind-icon">Request<wbr>With<wbr>Orders</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="requestwithorders.html#orders" class="tsd-kind-icon">orders</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="transaction.html" class="tsd-kind-icon">Transaction</a>
 					</li>

@@ -68,6 +68,19 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Namespaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-namespace"><a href="modules/request.html" class="tsd-kind-icon">Request</a></li>
+								<li class="tsd-kind-namespace"><a href="modules/response.html" class="tsd-kind-icon">Response</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Enumerations</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum"><a href="enums/shippingmethods.html" class="tsd-kind-icon">Shipping<wbr>Methods</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/axioserror.html" class="tsd-kind-icon">Axios<wbr>Error</a></li>
@@ -81,19 +94,32 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface"><a href="interfaces/addressbase.html" class="tsd-kind-icon">Address<wbr>Base</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/addresscnpj.html" class="tsd-kind-icon">AddressCNPJ</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/addresscpf.html" class="tsd-kind-icon">AddressCPF</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/melhorenvioboxrange.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Box<wbr>Range</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/melhorenviocalculateshipmentproduct.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Calculate<wbr>Shipment<wbr>Product</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/melhorenviocompany.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Company</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/melhorenviogetshipmentcalculateshipmentresponseitem.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Get<wbr>Shipment<wbr>Calculate<wbr>Shipment<wbr>Response<wbr>Item</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/melhorenviogetshipmentservicesresponseitem.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Get<wbr>Shipment<wbr>Services<wbr>Response<wbr>Item</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/melhorenviopackage.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Package</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/order.html" class="tsd-kind-icon">Order</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/range.html" class="tsd-kind-icon">Range</a></li>
-								<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/serverresponse.html" class="tsd-kind-icon">Server<wbr>Response</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/requestwithorders.html" class="tsd-kind-icon">Request<wbr>With<wbr>Orders</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/transaction.html" class="tsd-kind-icon">Transaction</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Type aliases</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="globals.html#address" class="tsd-kind-icon">Address</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#correiosshippingmethods" class="tsd-kind-icon">Correios<wbr>Shipping<wbr>Methods</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#jadlogshippingmethods" class="tsd-kind-icon">Jadlog<wbr>Shipping<wbr>Methods</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#menv_api_url" class="tsd-kind-icon">MENV_<wbr>API_<wbr>URL</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#menv_sandbox_api_url" class="tsd-kind-icon">MENV_<wbr>SANDBOX_<wbr>API_<wbr>URL</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#mydate" class="tsd-kind-icon">my<wbr>Date</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#oldtoken" class="tsd-kind-icon">old<wbr>Token</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#token" class="tsd-kind-icon">token</a></li>
@@ -110,17 +136,68 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="address" class="tsd-anchor"></a>
+					<h3>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">Address<span class="tsd-signature-symbol">:</span> <a href="interfaces/addresscpf.html" class="tsd-signature-type">AddressCPF</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/addresscnpj.html" class="tsd-signature-type">AddressCNPJ</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/types.ts#L123">src/types.ts:123</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="correiosshippingmethods" class="tsd-anchor"></a>
+					<h3>Correios<wbr>Shipping<wbr>Methods</h3>
+					<div class="tsd-signature tsd-kind-icon">Correios<wbr>Shipping<wbr>Methods<span class="tsd-signature-symbol">:</span> <a href="enums/shippingmethods.html#correiospac" class="tsd-signature-type">CorreiosPac</a><span class="tsd-signature-symbol"> | </span><a href="enums/shippingmethods.html#correiossedex" class="tsd-signature-type">CorreiosSEDEX</a><span class="tsd-signature-symbol"> | </span><a href="enums/shippingmethods.html#correiospacmini" class="tsd-signature-type">CorreiosPacMini</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/types.ts#L14">src/types.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="jadlogshippingmethods" class="tsd-anchor"></a>
+					<h3>Jadlog<wbr>Shipping<wbr>Methods</h3>
+					<div class="tsd-signature tsd-kind-icon">Jadlog<wbr>Shipping<wbr>Methods<span class="tsd-signature-symbol">:</span> <a href="enums/shippingmethods.html#jadlogcom" class="tsd-signature-type">JadlogCom</a><span class="tsd-signature-symbol"> | </span><a href="enums/shippingmethods.html#jadlogpackage" class="tsd-signature-type">JadlogPackage</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/types.ts#L19">src/types.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="menv_api_url" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> MENV_<wbr>API_<wbr>URL</h3>
+					<div class="tsd-signature tsd-kind-icon">MENV_<wbr>API_<wbr>URL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"https://www.melhorenvio.com.br"</span><span class="tsd-signature-symbol"> = &quot;https://www.melhorenvio.com.br&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L11">src/MelhorEnvio/index.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="menv_sandbox_api_url" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> MENV_<wbr>SANDBOX_<wbr>API_<wbr>URL</h3>
+					<div class="tsd-signature tsd-kind-icon">MENV_<wbr>SANDBOX_<wbr>API_<wbr>URL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"https://sandbox.melhorenvio.com.br"</span><span class="tsd-signature-symbol"> = &quot;https://sandbox.melhorenvio.com.br&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L10">src/MelhorEnvio/index.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="mydate" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> my<wbr>Date</h3>
 					<div class="tsd-signature tsd-kind-icon">my<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> = new Date()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/calculateShipment.test.ts#L9">src/MelhorEnvio/calculateShipment.test.ts:9</a></li>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/fetch.test.ts#L15">src/MelhorEnvio/fetch.test.ts:15</a></li>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/getShipmentServices.test.ts#L9">src/MelhorEnvio/getShipmentServices.test.ts:9</a></li>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/index.test.ts#L5">src/MelhorEnvio/index.test.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/fetch.test.ts#L15">src/MelhorEnvio/fetch.test.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.test.ts#L5">src/MelhorEnvio/index.test.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -130,7 +207,7 @@
 					<div class="tsd-signature tsd-kind-icon">old<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = generateTestToken(&#x27;2020-03-01&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/index.test.ts#L9">src/MelhorEnvio/index.test.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.test.ts#L9">src/MelhorEnvio/index.test.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -140,10 +217,8 @@
 					<div class="tsd-signature tsd-kind-icon">token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = generateTestToken(myDate.toString())</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/calculateShipment.test.ts#L12">src/MelhorEnvio/calculateShipment.test.ts:12</a></li>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/fetch.test.ts#L18">src/MelhorEnvio/fetch.test.ts:18</a></li>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/getShipmentServices.test.ts#L12">src/MelhorEnvio/getShipmentServices.test.ts:12</a></li>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/index.test.ts#L8">src/MelhorEnvio/index.test.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/fetch.test.ts#L18">src/MelhorEnvio/fetch.test.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.test.ts#L8">src/MelhorEnvio/index.test.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +235,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/utils/checkTokenValid.ts#L6">src/utils/checkTokenValid.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/utils/checkTokenValid.ts#L6">src/utils/checkTokenValid.ts:6</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -188,7 +263,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/utils/generateTestToken.ts#L6">src/utils/generateTestToken.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/utils/generateTestToken.ts#L6">src/utils/generateTestToken.ts:6</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -214,10 +289,25 @@
 					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/request.html">Request</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
+						<a href="modules/request.shipment.html">Request.<wbr>Shipment</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/response.html">Response</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace">
+						<a href="modules/response.shipment.html">Response.<wbr>Shipment</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/shippingmethods.html" class="tsd-kind-icon">Shipping<wbr>Methods</a>
+					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="classes/axioserror.html" class="tsd-kind-icon">Axios<wbr>Error</a>
 					</li>
@@ -237,6 +327,15 @@
 						<a href="classes/melhorenviofetchservererror.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Fetch<wbr>Server<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/addressbase.html" class="tsd-kind-icon">Address<wbr>Base</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/addresscnpj.html" class="tsd-kind-icon">AddressCNPJ</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/addresscpf.html" class="tsd-kind-icon">AddressCPF</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/melhorenvioboxrange.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Box<wbr>Range</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -246,19 +345,34 @@
 						<a href="interfaces/melhorenviocompany.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Company</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/melhorenviogetshipmentcalculateshipmentresponseitem.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Get<wbr>Shipment<wbr>Calculate<wbr>Shipment<wbr>Response<wbr>Item</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/melhorenviogetshipmentservicesresponseitem.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Get<wbr>Shipment<wbr>Services<wbr>Response<wbr>Item</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/melhorenviopackage.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Package</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/order.html" class="tsd-kind-icon">Order</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/range.html" class="tsd-kind-icon">Range</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="interfaces/serverresponse.html" class="tsd-kind-icon">Server<wbr>Response</a>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/requestwithorders.html" class="tsd-kind-icon">Request<wbr>With<wbr>Orders</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/transaction.html" class="tsd-kind-icon">Transaction</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#address" class="tsd-kind-icon">Address</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#correiosshippingmethods" class="tsd-kind-icon">Correios<wbr>Shipping<wbr>Methods</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#jadlogshippingmethods" class="tsd-kind-icon">Jadlog<wbr>Shipping<wbr>Methods</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#menv_api_url" class="tsd-kind-icon">MENV_<wbr>API_<wbr>URL</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#menv_sandbox_api_url" class="tsd-kind-icon">MENV_<wbr>SANDBOX_<wbr>API_<wbr>URL</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#mydate" class="tsd-kind-icon">my<wbr>Date</a>

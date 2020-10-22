@@ -87,6 +87,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="melhorenvio.html#appinfo" class="tsd-kind-icon">app<wbr>Info</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="melhorenvio.html#issandbox" class="tsd-kind-icon">is<wbr>Sandbox</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="melhorenvio.html#timeout" class="tsd-kind-icon">timeout</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="melhorenvio.html#token" class="tsd-kind-icon">token</a></li>
@@ -95,10 +96,15 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="melhorenvio.html#additemincart" class="tsd-kind-icon">add<wbr>Item<wbr>InCart</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="melhorenvio.html#calculateshipment" class="tsd-kind-icon">calculate<wbr>Shipment</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="melhorenvio.html#checkout" class="tsd-kind-icon">checkout</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="melhorenvio.html#fetch" class="tsd-kind-icon">fetch</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="melhorenvio.html#generatelabel" class="tsd-kind-icon">generate<wbr>Label</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="melhorenvio.html#getshipmentservices" class="tsd-kind-icon">get<wbr>Shipment<wbr>Services</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="melhorenvio.html#printlabel" class="tsd-kind-icon">print<wbr>Label</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="melhorenvio.html#sanitizepostalcode" class="tsd-kind-icon">sanitize<wbr>Postal<wbr>Code</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="melhorenvio.html#track" class="tsd-kind-icon">track</a></li>
 							</ul>
 						</section>
 					</div>
@@ -110,13 +116,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Melhor<wbr>Envio<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, isSandbox<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="melhorenvio.html" class="tsd-signature-type">MelhorEnvio</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Melhor<wbr>Envio<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, isSandbox<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, appInfo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>email<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="melhorenvio.html" class="tsd-signature-type">MelhorEnvio</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/index.ts#L19">src/MelhorEnvio/index.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L13">src/MelhorEnvio/index.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -150,6 +156,14 @@
 										</div>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> appInfo: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>email<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Info about your application</p>
+										</div>
+									</div>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="melhorenvio.html" class="tsd-signature-type">MelhorEnvio</a></h4>
 						</li>
@@ -159,14 +173,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="appinfo" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> app<wbr>Info</h3>
+					<div class="tsd-signature tsd-kind-icon">app<wbr>Info<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>email<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L25">src/MelhorEnvio/index.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Info about your application</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="issandbox" class="tsd-anchor"></a>
 					<h3>is<wbr>Sandbox</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Sandbox<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/index.ts#L18">src/MelhorEnvio/index.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L23">src/MelhorEnvio/index.ts:23</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Use or not a sandbox environment for testing.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="timeout" class="tsd-anchor"></a>
@@ -174,9 +208,14 @@
 					<div class="tsd-signature tsd-kind-icon">timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/index.ts#L19">src/MelhorEnvio/index.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L24">src/MelhorEnvio/index.ts:24</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Timeout of the request.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="token" class="tsd-anchor"></a>
@@ -184,24 +223,64 @@
 					<div class="tsd-signature tsd-kind-icon">token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/index.ts#L17">src/MelhorEnvio/index.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L22">src/MelhorEnvio/index.ts:22</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Token for API Requests. Can be generated direct in Melhor Envio Dashboard.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-					<a name="calculateshipment" class="tsd-anchor"></a>
-					<h3>calculate<wbr>Shipment</h3>
+					<a name="additemincart" class="tsd-anchor"></a>
+					<h3>add<wbr>Item<wbr>InCart</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">calculate<wbr>Shipment&lt;ServiceArgs&gt;<span class="tsd-signature-symbol">(</span>fromPostalCode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, toPostalCode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, productsOrPackageData<span class="tsd-signature-symbol">: </span><a href="../interfaces/melhorenviopackage.html" class="tsd-signature-type">MelhorEnvioPackage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/melhorenviocalculateshipmentproduct.html" class="tsd-signature-type">MelhorEnvioCalculateShipmentProduct</a><span class="tsd-signature-symbol">[]</span>, services<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceArgs</span>, receipt<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, ownHand<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, insuranceValue<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ServiceArgs</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">MelhorEnvioGetShipmentCalculateShipmentResponseItem</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">MelhorEnvioGetShipmentCalculateShipmentResponseItem</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Item<wbr>InCart&lt;T, S, NC&gt;<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> &amp; </span><a href="../modules/request.html#cart" class="tsd-signature-type">Cart</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">NC</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/response.html#cart" class="tsd-signature-type">Cart</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/index.ts#L105">src/MelhorEnvio/index.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L144">src/MelhorEnvio/index.ts:144</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+								<li>
+									<h4>S</h4>
+								</li>
+								<li>
+									<h4>NC</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> &amp; </span><a href="../modules/request.html#cart" class="tsd-signature-type">Cart</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">NC</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/response.html#cart" class="tsd-signature-type">Cart</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="calculateshipment" class="tsd-anchor"></a>
+					<h3>calculate<wbr>Shipment</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">calculate<wbr>Shipment&lt;T&gt;<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>fromPostalCode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>insuranceValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>ownHand<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>productsOrPackageData<span class="tsd-signature-symbol">: </span><a href="../interfaces/melhorenviopackage.html" class="tsd-signature-type">MelhorEnvioPackage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/melhorenviocalculateshipmentproduct.html" class="tsd-signature-type">MelhorEnvioCalculateShipmentProduct</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>receipt<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>services<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>toPostalCode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/response.shipment.html#calculate" class="tsd-signature-type">Calculate</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"services"</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L97">src/MelhorEnvio/index.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -212,52 +291,62 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>ServiceArgs</h4>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/request.shipment.calculate.html" class="tsd-signature-type">Calculate</a></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>fromPostalCode: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Origin Postal Code</p>
-									</div>
-								</li>
-								<li>
-									<h5>toPostalCode: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Destination Postal Code</p>
-									</div>
-								</li>
-								<li>
-									<h5>productsOrPackageData: <a href="../interfaces/melhorenviopackage.html" class="tsd-signature-type">MelhorEnvioPackage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/melhorenviocalculateshipmentproduct.html" class="tsd-signature-type">MelhorEnvioCalculateShipmentProduct</a><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5>services: <span class="tsd-signature-type">ServiceArgs</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>A list of services ID that you want to get in response</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> receipt: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>If you want a receipt service</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ownHand: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>If you want a own hand service</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> insuranceValue: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p><strong>Used only if you use packageData</strong>. Value for the insurance</p>
-									</div>
+									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>fromPostalCode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>insuranceValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>ownHand<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>productsOrPackageData<span class="tsd-signature-symbol">: </span><a href="../interfaces/melhorenviopackage.html" class="tsd-signature-type">MelhorEnvioPackage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/melhorenviocalculateshipmentproduct.html" class="tsd-signature-type">MelhorEnvioCalculateShipmentProduct</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>receipt<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>services<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>toPostalCode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>from<wbr>Postal<wbr>Code<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>insurance<wbr>Value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>own<wbr>Hand<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>products<wbr>OrPackage<wbr>Data<span class="tsd-signature-symbol">: </span><a href="../interfaces/melhorenviopackage.html" class="tsd-signature-type">MelhorEnvioPackage</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/melhorenviocalculateshipmentproduct.html" class="tsd-signature-type">MelhorEnvioCalculateShipmentProduct</a><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>receipt<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>services<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>to<wbr>Postal<wbr>Code<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ServiceArgs</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">MelhorEnvioGetShipmentCalculateShipmentResponseItem</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">MelhorEnvioGetShipmentCalculateShipmentResponseItem</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/response.shipment.html#calculate" class="tsd-signature-type">Calculate</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"services"</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="checkout" class="tsd-anchor"></a>
+					<h3>checkout</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">checkout<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../modules/request.shipment.html#checkout" class="tsd-signature-type">Checkout</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/response.shipment.checkout.html" class="tsd-signature-type">Checkout</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L150">src/MelhorEnvio/index.ts:150</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <a href="../modules/request.shipment.html#checkout" class="tsd-signature-type">Checkout</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/response.shipment.checkout.html" class="tsd-signature-type">Checkout</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -271,7 +360,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/index.ts#L48">src/MelhorEnvio/index.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L47">src/MelhorEnvio/index.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -317,19 +406,65 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getshipmentservices" class="tsd-anchor"></a>
-					<h3>get<wbr>Shipment<wbr>Services</h3>
+					<a name="generatelabel" class="tsd-anchor"></a>
+					<h3>generate<wbr>Label</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Shipment<wbr>Services<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/melhorenviogetshipmentservicesresponseitem.html" class="tsd-signature-type">MelhorEnvioGetShipmentServicesResponseItem</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Label<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../modules/request.shipment.html#generate" class="tsd-signature-type">Generate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/response.shipment.generate.html" class="tsd-signature-type">Generate</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/index.ts#L146">src/MelhorEnvio/index.ts:146</a></li>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L159">src/MelhorEnvio/index.ts:159</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/melhorenviogetshipmentservicesresponseitem.html" class="tsd-signature-type">MelhorEnvioGetShipmentServicesResponseItem</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <a href="../modules/request.shipment.html#generate" class="tsd-signature-type">Generate</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/response.shipment.generate.html" class="tsd-signature-type">Generate</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getshipmentservices" class="tsd-anchor"></a>
+					<h3>get<wbr>Shipment<wbr>Services</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Shipment<wbr>Services<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/response.shipment.services.html" class="tsd-signature-type">Services</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L137">src/MelhorEnvio/index.ts:137</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/response.shipment.services.html" class="tsd-signature-type">Services</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="printlabel" class="tsd-anchor"></a>
+					<h3>print<wbr>Label</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">print<wbr>Label<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../interfaces/request.shipment.print.html" class="tsd-signature-type">Print</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/response.shipment.print.html" class="tsd-signature-type">Print</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L168">src/MelhorEnvio/index.ts:168</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <a href="../interfaces/request.shipment.print.html" class="tsd-signature-type">Print</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/response.shipment.print.html" class="tsd-signature-type">Print</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -343,7 +478,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/99c3009/src/MelhorEnvio/index.ts#L36">src/MelhorEnvio/index.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L35">src/MelhorEnvio/index.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -353,6 +488,29 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="track" class="tsd-anchor"></a>
+					<h3>track</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">track<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../modules/request.shipment.html#tracking" class="tsd-signature-type">Tracking</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/response.shipment.tracking.html" class="tsd-signature-type">Tracking</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jonyw4/melhor-envio-js/blob/72a4b9b/src/MelhorEnvio/index.ts#L177">src/MelhorEnvio/index.ts:177</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <a href="../modules/request.shipment.html#tracking" class="tsd-signature-type">Tracking</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/response.shipment.tracking.html" class="tsd-signature-type">Tracking</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -368,6 +526,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="../enums/shippingmethods.html" class="tsd-kind-icon">Shipping<wbr>Methods</a>
+					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="axioserror.html" class="tsd-kind-icon">Axios<wbr>Error</a>
 					</li>
@@ -383,6 +544,9 @@
 								<a href="melhorenvio.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="melhorenvio.html#appinfo" class="tsd-kind-icon">app<wbr>Info</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="melhorenvio.html#issandbox" class="tsd-kind-icon">is<wbr>Sandbox</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -392,16 +556,31 @@
 								<a href="melhorenvio.html#token" class="tsd-kind-icon">token</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="melhorenvio.html#additemincart" class="tsd-kind-icon">add<wbr>Item<wbr>InCart</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="melhorenvio.html#calculateshipment" class="tsd-kind-icon">calculate<wbr>Shipment</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="melhorenvio.html#checkout" class="tsd-kind-icon">checkout</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="melhorenvio.html#fetch" class="tsd-kind-icon">fetch</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="melhorenvio.html#generatelabel" class="tsd-kind-icon">generate<wbr>Label</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="melhorenvio.html#getshipmentservices" class="tsd-kind-icon">get<wbr>Shipment<wbr>Services</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="melhorenvio.html#printlabel" class="tsd-kind-icon">print<wbr>Label</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="melhorenvio.html#sanitizepostalcode" class="tsd-kind-icon">sanitize<wbr>Postal<wbr>Code</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="melhorenvio.html#track" class="tsd-kind-icon">track</a>
 							</li>
 						</ul>
 					</li>
@@ -417,6 +596,15 @@
 						<a href="melhorenviofetchservererror.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Fetch<wbr>Server<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/addressbase.html" class="tsd-kind-icon">Address<wbr>Base</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/addresscnpj.html" class="tsd-kind-icon">AddressCNPJ</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/addresscpf.html" class="tsd-kind-icon">AddressCPF</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/melhorenvioboxrange.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Box<wbr>Range</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -426,19 +614,34 @@
 						<a href="../interfaces/melhorenviocompany.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Company</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/melhorenviogetshipmentcalculateshipmentresponseitem.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Get<wbr>Shipment<wbr>Calculate<wbr>Shipment<wbr>Response<wbr>Item</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/melhorenviogetshipmentservicesresponseitem.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Get<wbr>Shipment<wbr>Services<wbr>Response<wbr>Item</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="../interfaces/melhorenviopackage.html" class="tsd-kind-icon">Melhor<wbr>Envio<wbr>Package</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/order.html" class="tsd-kind-icon">Order</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/range.html" class="tsd-kind-icon">Range</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="../interfaces/serverresponse.html" class="tsd-kind-icon">Server<wbr>Response</a>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/requestwithorders.html" class="tsd-kind-icon">Request<wbr>With<wbr>Orders</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/transaction.html" class="tsd-kind-icon">Transaction</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#address" class="tsd-kind-icon">Address</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#correiosshippingmethods" class="tsd-kind-icon">Correios<wbr>Shipping<wbr>Methods</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#jadlogshippingmethods" class="tsd-kind-icon">Jadlog<wbr>Shipping<wbr>Methods</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#menv_api_url" class="tsd-kind-icon">MENV_<wbr>API_<wbr>URL</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#menv_sandbox_api_url" class="tsd-kind-icon">MENV_<wbr>SANDBOX_<wbr>API_<wbr>URL</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#mydate" class="tsd-kind-icon">my<wbr>Date</a>
