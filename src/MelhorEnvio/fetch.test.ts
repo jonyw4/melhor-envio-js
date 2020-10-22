@@ -1,6 +1,6 @@
 import axios from 'axios';
 import generateTestToken from '../utils/generateTestToken';
-import MelhorEnvio from './index';
+import { MelhorEnvio } from './index';
 import {
   AxiosTestError,
   MelhorEnvioFetchServerError,

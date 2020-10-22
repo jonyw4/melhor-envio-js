@@ -1,11 +1,5 @@
 import axios, { Method, AxiosRequestConfig, AxiosError } from 'axios';
-import type {
-  MelhorEnvioPackage,
-  MelhorEnvioCalculateShipmentProduct,
-  MelhorEnvioGetShipmentCalculateShipmentResponseItem,
-  MelhorEnvioGetShipmentServicesResponseItem,
-  ServerResponse
-} from '../types';
+import type { Request, Response } from '../types';
 import {
   MelhorEnvioFetchOtherError,
   MelhorEnvioFetchClientError,
@@ -13,27 +7,32 @@ import {
 } from '../errors';
 import checkTokenValid from '../utils/checkTokenValid';
 
-class MelhorEnvio {
-  token: string;
-  isSandbox: boolean;
-  timeout: number;
+const MENV_SANDBOX_API_URL = 'https://sandbox.melhorenvio.com.br';
+const MENV_API_URL = 'https://www.melhorenvio.com.br';
 
+export class MelhorEnvio {
   /**
    * 🚚 Melhor Envio Javascript API
    * @param token Token for API Requests. Can be generated direct in Melhor Envio Dashboard.
    * @param isSandbox Use or not a sandbox environment for testing.
    * @param timeout Timeout of the request.
+   * @param appInfo Info about your application
    */
-  constructor(token: string, isSandbox = false, timeout = 5000) {
+  constructor(
+    public token: string,
+    public isSandbox = false,
+    public timeout = 5000,
+    public appInfo?: {
+      name: string;
+      email: string;
+    }
+  ) {
     if (!checkTokenValid(token)) {
       throw new Error('Your token has expired');
     }
-    this.token = token;
-    this.isSandbox = isSandbox;
-    this.timeout = timeout;
   }
 
-  private sanitizePostalCode(postalCode: string) {
+  private sanitizePostalCode(postalCode: string): string {
     return postalCode.toString().replace(/\D+/g, '');
   }
 
@@ -50,19 +49,20 @@ class MelhorEnvio {
     method: Method = 'GET',
     params: AxiosRequestConfig['params'] = {},
     data: AxiosRequestConfig['data'] = {}
-  ) {
+  ): Promise<T> {
     return axios
-      .request<any, ServerResponse<T>>({
-        baseURL: this.isSandbox
-          ? 'https://sandbox.melhorenvio.com.br'
-          : 'https://www.melhorenvio.com.br',
+      .request<any, Response.Server<T>>({
+        baseURL: this.isSandbox ? MENV_SANDBOX_API_URL : MENV_API_URL,
         method,
         url,
         timeout: this.timeout,
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          Authorization: `Bearer ${this.token}`
+          Authorization: `Bearer ${this.token}`,
+          'User-Agent': this.appInfo
+            ? `${this.appInfo.name} (${this.appInfo.email})`
+            : undefined
         },
         params,
         data
@@ -70,6 +70,7 @@ class MelhorEnvio {
       .then((response) => response.data)
       .catch((error: AxiosError<any>) => {
         if (error.response) {
+          console.log(error.response.data);
           throw new MelhorEnvioFetchServerError(
             error.message,
             error.config,
@@ -92,27 +93,16 @@ class MelhorEnvio {
 
   /**
    * 💵 Calculate quote for shipment
-   *
-   * @param fromPostalCode Origin Postal Code
-   * @param toPostalCode Destination Postal Code
-   * @param packageData All data of package. **If you chose these option you cant choose `productsData`**
-   * @param productsData A list of product required for calculate quote. **If you chose these option you cant choose `packageData`**
-   * @param services A list of services ID that you want to get in response
-   * @param receipt If you want a receipt service
-   * @param ownHand If you want a own hand service
-   * @param insuranceValue **Used only if you use packageData**. Value for the insurance
    */
-  public async calculateShipment<ServiceArgs = Array<string> | string | null>(
-    fromPostalCode: string,
-    toPostalCode: string,
-    productsOrPackageData:
-      | MelhorEnvioPackage
-      | MelhorEnvioCalculateShipmentProduct[],
-    services: ServiceArgs,
+  public async calculateShipment<T extends Request.Shipment.Calculate>({
+    fromPostalCode,
+    toPostalCode,
+    productsOrPackageData,
+    services,
     receipt = false,
     ownHand = false,
     insuranceValue = 0
-  ) {
+  }: T): Promise<Response.Shipment.Calculate<T['services']>> {
     const data: any = {
       from: {
         postal_code: this.sanitizePostalCode(fromPostalCode)
@@ -136,19 +126,60 @@ class MelhorEnvio {
       data.package = productsOrPackageData;
     }
 
-    return this.fetch<
-      ServiceArgs extends string
-        ? MelhorEnvioGetShipmentCalculateShipmentResponseItem
-        : MelhorEnvioGetShipmentCalculateShipmentResponseItem[]
-    >('/api/v2/me/shipment/calculate', 'POST', {}, data);
+    return this.fetch<Response.Shipment.Calculate<T['services']>>(
+      '/api/v2/me/shipment/calculate',
+      'POST',
+      {},
+      data
+    );
   }
 
-  public async getShipmentServices() {
-    return this.fetch<MelhorEnvioGetShipmentServicesResponseItem>(
+  public async getShipmentServices(): Promise<Response.Shipment.Services> {
+    return this.fetch<Response.Shipment.Services>(
       '/api/v2/me/shipment/services',
       'GET'
     );
   }
-}
 
-export default MelhorEnvio;
+  public async addItemInCart<T, S, NC>(
+    data: T & Request.Cart<S, NC>
+  ): Promise<Response.Cart> {
+    return this.fetch<Response.Cart>('/api/v2/me/cart', 'POST', {}, data);
+  }
+
+  public async checkout(data: Request.Shipment.Checkout) {
+    return this.fetch<Response.Shipment.Checkout>(
+      '/api/v2/me/shipment/checkout',
+      'POST',
+      {},
+      data
+    );
+  }
+
+  public async generateLabel(data: Request.Shipment.Generate) {
+    return this.fetch<Response.Shipment.Generate>(
+      '/api/v2/me/shipment/generate',
+      'POST',
+      {},
+      data
+    );
+  }
+
+  public async printLabel(data: Request.Shipment.Print) {
+    return this.fetch<Response.Shipment.Print>(
+      '/api/v2/me/shipment/print',
+      'POST',
+      {},
+      data
+    );
+  }
+
+  public async track(data: Request.Shipment.Tracking) {
+    return this.fetch<Response.Shipment.Tracking>(
+      '/api/v2/me/shipment/tracking',
+      'POST',
+      {},
+      data
+    );
+  }
+}

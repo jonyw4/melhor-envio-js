@@ -1,5 +1,5 @@
 /* eslint-disable no-prototype-builtins */
-import MelhorEnvio from './index';
+import { MelhorEnvio } from './index';
 import generateTestToken from '../utils/generateTestToken';
 
 const myDate = new Date();

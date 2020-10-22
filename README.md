@@ -10,9 +10,14 @@ A JavaScript library to interface with Melhor Envio API, it works with Node.js. 
 ## 🌟 Features
 This library its in **early stages**, so it doesn't have interfaces for all MelhorEnvio features (Your PR is very welcome).
 
-With this library you can:
-- Get Shipment Services
-- Calculate Shipment
+Avaiable methods:
+- calculateShipment
+- getShipmentServices
+- addItemInCart
+- checkout
+- generateLabel
+- printLabel
+- getTracking
 
 ## 📖 How to use?
 Install the library
