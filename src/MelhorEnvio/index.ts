@@ -1,6 +1,5 @@
-import { Generate } from './../types';
 import axios, { Method, AxiosRequestConfig, AxiosError } from 'axios';
-import type { Request, Response, ShippingMethods } from '../types';
+import type { Request, Response } from '../types';
 import {
   MelhorEnvioFetchOtherError,
   MelhorEnvioFetchClientError,
@@ -8,24 +7,29 @@ import {
 } from '../errors';
 import checkTokenValid from '../utils/checkTokenValid';
 
-class MelhorEnvio {
-  token: string;
-  isSandbox: boolean;
-  timeout: number;
+const MENV_SANDBOX_API_URL = 'https://sandbox.melhorenvio.com.br';
+const MENV_API_URL = 'https://www.melhorenvio.com.br';
 
+export class MelhorEnvio {
   /**
    * 🚚 Melhor Envio Javascript API
    * @param token Token for API Requests. Can be generated direct in Melhor Envio Dashboard.
    * @param isSandbox Use or not a sandbox environment for testing.
    * @param timeout Timeout of the request.
+   * @param appInfo Info about your application
    */
-  constructor(token: string, isSandbox = false, timeout = 5000) {
+  constructor(
+    public token: string,
+    public isSandbox = false,
+    public timeout = 5000,
+    public appInfo?: {
+      name: string;
+      email: string;
+    }
+  ) {
     if (!checkTokenValid(token)) {
       throw new Error('Your token has expired');
     }
-    this.token = token;
-    this.isSandbox = isSandbox;
-    this.timeout = timeout;
   }
 
   private sanitizePostalCode(postalCode: string): string {
@@ -48,16 +52,17 @@ class MelhorEnvio {
   ): Promise<T> {
     return axios
       .request<any, Response.Server<T>>({
-        baseURL: this.isSandbox
-          ? 'https://sandbox.melhorenvio.com.br'
-          : 'https://www.melhorenvio.com.br',
+        baseURL: this.isSandbox ? MENV_SANDBOX_API_URL : MENV_API_URL,
         method,
         url,
         timeout: this.timeout,
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          Authorization: `Bearer ${this.token}`
+          Authorization: `Bearer ${this.token}`,
+          'User-Agent': this.appInfo
+            ? `${this.appInfo.name} (${this.appInfo.email})`
+            : undefined
         },
         params,
         data
@@ -65,6 +70,7 @@ class MelhorEnvio {
       .then((response) => response.data)
       .catch((error: AxiosError<any>) => {
         if (error.response) {
+          console.log(error.response.data);
           throw new MelhorEnvioFetchServerError(
             error.message,
             error.config,
@@ -150,9 +156,9 @@ class MelhorEnvio {
     );
   }
 
-  public async tracking(data: Request.Shipment.Tracking) {
-    return this.fetch<Response.Shipment.Tracking>(
-      '/api/v2/me/shipment/tracking',
+  public async generateLabel(data: Request.Shipment.Generate) {
+    return this.fetch<Response.Shipment.Generate>(
+      '/api/v2/me/shipment/generate',
       'POST',
       {},
       data
@@ -168,14 +174,12 @@ class MelhorEnvio {
     );
   }
 
-  public async generateLabel(data: Request.Shipment.Generate) {
-    return this.fetch<Response.Shipment.Generate>(
-      '/api/v2/me/shipment/generate',
+  public async track(data: Request.Shipment.Tracking) {
+    return this.fetch<Response.Shipment.Tracking>(
+      '/api/v2/me/shipment/tracking',
       'POST',
       {},
       data
     );
   }
 }
-
-export default MelhorEnvio;

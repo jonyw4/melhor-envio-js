@@ -20,20 +20,96 @@ export type JadlogShippingMethods =
   | ShippingMethods.JadlogCom
   | ShippingMethods.JadlogPackage;
 
+export interface Order {
+  id: string;
+  protocol: string;
+  service_id: number;
+  agency_id: string | null;
+  contract: string;
+  service_code: string | null;
+  quote: number;
+  price: number;
+  coupon: string | null;
+  discount: number;
+  delivery_min: number;
+  delivery_max: number;
+  status: string;
+  reminder: string | null;
+  insurance_value: number;
+  weight: number | null;
+  width: number | null;
+  height: number | null;
+  length: number | null;
+  diameter: number | null;
+  format: string;
+  billed_weight: 0.14;
+  receipt: boolean;
+  own_hand: boolean;
+  collect: boolean;
+  collect_scheduled_at: string | null;
+  reverse: boolean;
+  non_commercial: boolean;
+  authorization_code: string | null;
+  tracking: string | null;
+  self_tracking: string | null;
+  delivery_receipt: string | null;
+  additional_info: string | null;
+  cte_key: string | null;
+  paid_at: string | null;
+  generated_at: string | null;
+  posted_at: string | null;
+  delivered_at: string | null;
+  canceled_at: string | null;
+  suspended_at: string | null;
+  expired_at: string | null;
+  created_at: string;
+  updated_at: string;
+  parse_pi_at: string | null;
+  volumes: [
+    {
+      id: string;
+      height: string;
+      width: string;
+      length: string;
+      diameter: string;
+      weight: string;
+      format: string;
+      created_at: string;
+      updated_at: string;
+    }
+  ];
+}
+
+export interface Transaction {
+  id: string;
+  protocol: string;
+  value: number;
+  type: string;
+  status: string;
+  description: string;
+  authorized_at: string;
+  unauthorized_at: string | null;
+  reserved_at: string | null;
+  canceled_at: string | null;
+  created_at: string;
+  description_internal: string | null;
+  reason: any;
+}
+
 export interface AddressBase {
   name: string;
   phone: string;
   email: string;
-  state_register: string;
   address: string;
-  complement: string;
   number: string;
+  complement: string;
   district: string;
-  state_abbr: string;
   city: string;
+  state_register: string;
+  state_abbr: string;
   country_id: string;
   postal_code: string;
-  note: string;
+  note?: string;
 }
 
 export interface AddressCPF extends AddressBase {
@@ -136,18 +212,55 @@ export namespace Response {
       ? CalculateItem
       : CalculateItem[];
 
-    /**
-     * Após feita a requisição, será retornado, entre outros dados, uma url de redirecionamento para concluir o pagamento junto ao gateway.
-     */
     export interface Checkout {
+      purchase: {
+        id: string;
+        protocol: string;
+        total: number;
+        discount: number;
+        status: string;
+        paid_at: string;
+        canceled_at: string | null;
+        created_at: string;
+        updated_at: string;
+        payment: string;
+        transactions: Transaction[];
+        orders: Order[];
+        paypal_discounts: Array<any>;
+      };
+      digitable: string | null;
+      redirect: string | null;
+      message: string | null;
+      token: string | null;
+      payment_id: string | null;
+    }
+    export interface Print {
+      url: string;
+    }
+    export interface Generate {
+      [orderId: string]: {
+        status: boolean;
+        message: string;
+      };
+    }
+    export interface Tracking {
       id: string;
+      protocol: string;
+      status: string;
+      tracking: string;
+      melhorenvio_tracking: string;
+      created_at: string;
+      paid_at: string;
+      generated_at: string;
+      posted_at: string | null;
+      delivered_at: string | null;
+      canceled_at: string | null;
+      expired_at: string | null;
     }
   }
-  export interface Cart {
-    id: string;
-  }
+  export type Cart = Order;
 }
-interface Orders {
+interface RequestWithOrders {
   orders: string[];
 }
 
@@ -165,23 +278,23 @@ export namespace Request {
       insuranceValue: number;
     }
 
-    interface CheckoutWithGateway extends Orders {
+    interface CheckoutWithGateway extends RequestWithOrders {
       gateway: 'moip' | 'mercado-pago' | 'picpay' | 'pagseguro';
       /**
        * URL de redirecionamento para retorno após o pagamento
        */
       redirect: string;
     }
-    export type Checkout = Orders | CheckoutWithGateway;
+    export type Checkout = RequestWithOrders | CheckoutWithGateway;
 
-    export interface Print extends Orders {
+    export interface Print extends RequestWithOrders {
       /**
-       * É possível solicitar que o link seja público ou privado através do parâmetro mode. Por padrão, todos os links de impressão solicitados sem a definisção do parâmetro mode como public são privados. Sendo o link público, qualquer pessoa com o link pode acessar. Sendo o link privado, é necessário estar logado no Melhor Envio com o usuário que gerou a etiqueta.
+       * É possível solicitar que o link seja público ou privado através do parâmetro mode. Por padrão, todos os links de impressão solicitados sem a definição do parâmetro mode como public são privados. Sendo o link público, qualquer pessoa com o link pode acessar. Sendo o link privado, é necessário estar logado no Melhor Envio com o usuário que gerou a etiqueta.
        */
       mode: 'public' | 'private';
     }
-    export type Generate = Orders;
-    export type Tracking = Orders;
+    export type Generate = RequestWithOrders;
+    export type Tracking = RequestWithOrders;
   }
 
   type CartProducts = Array<{
@@ -195,7 +308,7 @@ export namespace Request {
 
   export type Cart<S, NC> = {
     service: S;
-    agency: S extends CorreiosShippingMethods
+    agency: S extends JadlogShippingMethods
       ? string
       : string | null | undefined;
     from: Address;
