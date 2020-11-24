@@ -117,8 +117,8 @@ export class MelhorEnvio {
       }
     };
 
-    if (services && Array.isArray(services) && services.length > 0) {
-      data.services = services.join(',');
+    if (services) {
+      data.services = (Array.isArray(services) && services.length > 0) ? services.join(',') : services;
     }
     if (Array.isArray(productsOrPackageData)) {
       data.products = productsOrPackageData;
